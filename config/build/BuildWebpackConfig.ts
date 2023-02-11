@@ -7,21 +7,21 @@ import { buildPlugins } from './buildPlugins';
 import { buildResolves } from './buildResolves';
 import { BuildOptions } from './types/config';
 
-export function buildWebpackConfig({ paths, mode, port, isDev}: BuildOptions): webpack.Configuration {
+export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
     return {
-        mode,
-        entry: paths.entry,
+        mode: options.mode,
+        entry: options.paths.entry,
         output: {
             filename: "[name].[contenthash].js",
-            path: paths.build,
+            path: options.paths.build,
             clean: true,
         },
         module: {
-          rules: buildLoaders(isDev),
+          rules: buildLoaders(options),
         },
-        resolve: buildResolves(paths),
-        plugins: buildPlugins(paths.html),
-        devtool: isDev ? 'inline-source-map': undefined,
-        devServer: isDev ?buildDevServer(port) : undefined,
+        resolve: buildResolves(options),
+        plugins: buildPlugins(options),
+        devtool: options.isDev ? 'inline-source-map': undefined,
+        devServer: options.isDev ?buildDevServer(options) : undefined,
     }
 }

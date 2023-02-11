@@ -2,7 +2,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 
-export function buildLoaders(isDev: BuildOptions['isDev']): webpack.RuleSetRule[] {
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 
     const svgLoader = {
       test: /\.svg$/,
@@ -27,13 +27,13 @@ export function buildLoaders(isDev: BuildOptions['isDev']): webpack.RuleSetRule[
     const sassLoader = {
       test: /\.s[ac]ss$/i,
       use: [
-        isDev ? 'style-loader': MiniCssExtractPlugin.loader,
+        options.isDev ? 'style-loader': MiniCssExtractPlugin.loader,
         {
           loader: "css-loader",
           options: {
             modules: {
               auto: (resPath: string) => Boolean(resPath.includes('.module')),
-              localIdentName: isDev
+              localIdentName: options.isDev
                 ? '[path][name]__[local]__[hash:base64:8]'
                 : '[hash:base64:8]',
             },

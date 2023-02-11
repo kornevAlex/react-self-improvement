@@ -1,5 +1,8 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default () => {
-	return <div>ABOUT PAGE</div>;
+	const { t } = useTranslation('about')
+
+	return <div>{t('about_page_header')}</div>;
 };

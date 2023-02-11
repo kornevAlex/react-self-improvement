@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames';
 import cls from './Sidebar.module.sass';
 import { useState } from 'react';
 import { UTButton } from 'shared/ui/UTButton/UTButton';
-import { ThemeSwitcher } from 'shared/ui';
+import { LangSwitcher, ThemeSwitcher } from 'widgets';
 
 interface SidebarProps {
     className?: string;
@@ -22,6 +22,7 @@ export const Sidebar = ({className}: SidebarProps) => {
             </UTButton>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
+                <LangSwitcher className={cls.lang}/>
             </div>
        </div>
    )
