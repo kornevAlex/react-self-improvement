@@ -6,19 +6,19 @@ import { useTranslation } from 'react-i18next';
 interface LangSwitcherProps {
     className?: string;
 }
-export const LangSwitcher = ({className}: LangSwitcherProps) => {
-	const { t, i18n } = useTranslation()
-    const toggleLanguage = async () => {
-        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
-    }
+export const LangSwitcher = ({ className }: LangSwitcherProps) => {
+	const { t, i18n } = useTranslation();
+	const toggleLanguage = async () => {
+		i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+	};
 
-   return (
-        <UTButton
-            className={classNames(cls.LangSwitcher, {}, [className])}
-            theme={ThemeButton.CLEAR}
-            onClick={toggleLanguage}
-        >
-            {t('language')}
-        </UTButton>
-   )
-}
+	return (
+		<UTButton
+			className={classNames(cls.LangSwitcher, {}, [className])}
+			theme={ThemeButton.CLEAR}
+			onClick={toggleLanguage}
+		>
+			{t('language')}
+		</UTButton>
+	);
+};

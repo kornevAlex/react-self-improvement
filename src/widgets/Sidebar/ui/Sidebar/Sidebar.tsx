@@ -7,23 +7,23 @@ import { LangSwitcher, ThemeSwitcher } from 'widgets';
 interface SidebarProps {
     className?: string;
 }
-export const Sidebar = ({className}: SidebarProps) => {
-    const [ collapsed, setCollapsed ] = useState(false);
+export const Sidebar = ({ className }: SidebarProps) => {
+	const [ collapsed, setCollapsed ] = useState(false);
 
-    const onToggle = () => {
-        setCollapsed(prev => !prev);
-    }
-   return (
-       <div
-            className={classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className])}
-        >
-            <UTButton onClick={onToggle}>
+	const onToggle = () => {
+		setCollapsed(prev => !prev);
+	};
+	return (
+		<div
+			className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+		>
+			<UTButton onClick={onToggle}>
                 Click ME!!!
-            </UTButton>
-            <div className={cls.switchers}>
-                <ThemeSwitcher />
-                <LangSwitcher className={cls.lang}/>
-            </div>
-       </div>
-   )
-}
+			</UTButton>
+			<div className={cls.switchers}>
+				<ThemeSwitcher />
+				<LangSwitcher className={cls.lang}/>
+			</div>
+		</div>
+	);
+};
