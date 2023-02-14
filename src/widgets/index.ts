@@ -1,3 +1,4 @@
+export { PageLoader } from './PageLoader/PageLoader';
 export { LangSwitcher } from './LangSwitcher/LangSwitcher';
 export { Navbar } from './Navbar';
 export { Sidebar } from './Sidebar';

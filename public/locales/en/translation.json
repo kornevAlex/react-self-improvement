@@ -3,5 +3,6 @@
   "main_nav": "Main",
   "translate_button": "Translate",
   "language": "English",
-  "open": "Open"
+  "open": "Open",
+  "not_found": "Page not found"
 }
