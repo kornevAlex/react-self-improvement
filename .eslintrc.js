@@ -17,7 +17,8 @@ module.exports = {
 	},
 	'plugins': [
 		'react',
-		'@typescript-eslint'
+		'@typescript-eslint',
+		'i18next'
 	],
 	'rules': {
 		'indent': [
@@ -43,6 +44,7 @@ module.exports = {
 		'object-curly-spacing': ['error', 'always'],
 		'eol-last': ['error', 'always'],
 		'react/react-in-jsx-scope': 'off',
-		'react/display-name': 'off'
+		'react/display-name': 'off',
+		'i18next/no-literal-string': ['error', { markupOnly : true }]
 	}
 };

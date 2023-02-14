@@ -4,5 +4,14 @@
         "public/locales",
         "src/shared/config/i18n"
     ],
-    "i18n-ally.keystyle": "flat"
+    "i18n-ally.keystyle": "flat",
+    "stylelint.enable": true,
+    "css.validate": true,
+    "scss.validate": true,
+    "sass.validate": true,
+    "stylelint.validate": [
+    "css",
+    "scss",
+    "sass"
+    ],
 }
