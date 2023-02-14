@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/classNames';
-import cls from './Navbar.module.sass';
+import { classNames } from 'shared/lib/classNames/classNames';
+import cls from './Navbar.module.scss';
 import { UTLink } from 'shared/ui/UTLink/UTLink';
 import { useTranslation } from 'react-i18next';
 

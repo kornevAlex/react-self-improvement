@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/classNames';
-import cls from './Sidebar.module.sass';
+import { classNames } from 'shared/lib/classNames/classNames';
+import cls from './Sidebar.module.scss';
 import { useState } from 'react';
 import { UTButton } from 'shared/ui/UTButton/UTButton';
 import { LangSwitcher, ThemeSwitcher } from 'widgets';

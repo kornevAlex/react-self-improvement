@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/classNames';
-import cls from './UTLink.module.sass';
+import { classNames } from 'shared/lib/classNames/classNames';
+import cls from './UTLink.module.scss';
 import { Link, LinkProps } from 'react-router-dom';
 import { FC } from 'react';
 
