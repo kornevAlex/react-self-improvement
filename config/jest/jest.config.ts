@@ -1,3 +1,4 @@
+import path from 'path';
 /*
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
@@ -32,7 +33,7 @@ export default {
 
 	// An array of directory names to be searched recursively up from the requiring module's location
 	moduleDirectories: [
-		'node_modules'
+		'node_modules', 'src'
 	],
 
 	moduleFileExtensions: [
@@ -137,7 +138,11 @@ export default {
 	// setupFiles: [],
 
 	// A list of paths to modules that run some code to configure or set up the testing framework before each test
-	// setupFilesAfterEnv: [],
+	setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
+	moduleNameMapper: {
+		'\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': path.resolve(__dirname, 'JestEmptyComponent.tsx'),
+		'\\.(css|scss|sass)$': 'identity-obj-proxy',
+	},
 
 	// The number of seconds after which a test is considered as slow and reported as such in the results.
 	// slowTestThreshold: 5,
