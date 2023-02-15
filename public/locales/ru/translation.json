@@ -4,5 +4,7 @@
     "translate_button": "Перевести",
     "language": "Русский",
     "open": "Открыть",
-    "not_found": "Страница не найдена"
+    "not_found": "Страница не найдена",
+    "something_wrong": "Что-то пошло не так",
+    "reload": "Обновить"
 }

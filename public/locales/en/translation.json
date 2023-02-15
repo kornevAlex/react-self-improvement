@@ -4,5 +4,8 @@
   "translate_button": "Translate",
   "language": "English",
   "open": "Open",
-  "not_found": "Page not found"
+  "not_found": "Page not found",
+  "something_wrong": "Something was wrong",
+  "reload": "Reload",
+  "error": "Error"
 }

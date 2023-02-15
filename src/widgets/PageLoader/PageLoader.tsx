@@ -7,7 +7,7 @@ interface PageLoaderProps {
 }
 export const PageLoader = ({ className }: PageLoaderProps) => {
 	return (
-		<div className={classNames(cls['loadingio-spinner-spin-h7mi0rpdvw'], {}, [className])}>
+		<div className={classNames(cls.PageLoader, {}, [className])}>
 			<Loader />
 		</div>
 	);
