@@ -1,0 +1,31 @@
+name: linting, testing, building
+run-name: ${{ github.actor }} is learning GitHub Actions
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main, develop ]
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 17.x]
+    steps:
+      -uses: actions/checkout@v2
+      -name: Staring Node.js ${{ matrix/node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix/node-version }}
+      -name: install pnpm
+      run: npm i pnpm -G
+      -name: install modules
+      run: pnpm install
+      -name: build project
+      run: pnpm run build:prod
+      -name: linting typescript
+      run: pnpm run lint:ts
+      -name: linting css
+      run: pnpm run lint:scss
+      -name: unit testing
+      run: pnpm run test
