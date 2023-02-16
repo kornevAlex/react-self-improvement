@@ -8,7 +8,7 @@ export default {
 	component: MainPage,
 } as ComponentMeta<typeof MainPage>;
 
-const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />;
+const Template: ComponentStory<typeof MainPage> = (args) => <MainPage />;
 
 export const DarkMainPage = Template.bind({});
 DarkMainPage.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator];
