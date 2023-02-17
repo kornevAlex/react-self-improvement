@@ -57,7 +57,7 @@ jobs:
         run: pnpm run test:unit
 
       - name: build storybook
-        run: pnpm run storybook:build
+        run: pnpm run build:sb
 
       - name: screenshot testing
         run: pnpm run test:ui:ci
