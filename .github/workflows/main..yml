@@ -44,8 +44,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: build development project
-        run: pnpm run build:dev
+      - name: build production project
+        run: pnpm run build:prod
 
       - name: linting typescript
         run: pnpm run lint:ts
