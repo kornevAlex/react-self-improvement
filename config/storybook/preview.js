@@ -1,6 +1,5 @@
 import { addDecorator } from '@storybook/react';
-import { Theme }from '../../src/app/providers/ThemeProvider';
-import { StyleDecorator, ThemeDecorator } from '../../src/shared/config/storybook';
+import { StyleDecorator } from '../../src/shared/config/storybook';
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
 	controls: {
