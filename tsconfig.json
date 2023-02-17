@@ -10,6 +10,7 @@
       "esModuleInterop": true,
       "allowSyntheticDefaultImports": true, // позволяет использовать импроты es6
       "baseUrl": ".",
+      "forceConsistentCasingInFileNames": true,
       "strictBindCallApply": true,
       "paths": {
         "*": ["./src/*"]
