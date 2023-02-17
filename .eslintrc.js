@@ -46,6 +46,7 @@ module.exports = {
 		'eol-last': ['error', 'always'],
 		'react/react-in-jsx-scope': 'off',
 		'react/display-name': 'off',
-		'i18next/no-literal-string': ['error', { markupOnly : true }]
+		'i18next/no-literal-string': ['error', { markupOnly : true }],
+		'linebreak-style': ['error', 'windows']
 	}
 };
