@@ -13,7 +13,7 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
 
 	return (
 		<UTButton
-			onClick={() => toggleTheme()}
+			onClick={toggleTheme}
 			className={classNames(cls.ThemeSwitcher, {}, [className])}
 			theme={ThemeButton.CLEAR}
 		>
