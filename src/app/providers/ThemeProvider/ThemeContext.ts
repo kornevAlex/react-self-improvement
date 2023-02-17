@@ -11,8 +11,7 @@ export interface ThemeContextProps{
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({
-	// eslint-disable-next-line @typescript-eslint/no-empty-function
-	setTheme: () => {},
+	setTheme: () => ({}),
 	theme: Theme.DARK
 });
 
