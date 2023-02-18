@@ -1,12 +1,6 @@
 .PageLoader {
-  min-height: calc(100vh - var(--navbar-height));
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-  margin: auto;
   width: 200px;
   height: 200px;
-  display: inline-block;
-  overflow: hidden;
+  margin: auto;
   background: var(--bg-color);
 }

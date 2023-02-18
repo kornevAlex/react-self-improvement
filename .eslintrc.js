@@ -47,6 +47,6 @@ module.exports = {
 		'react/react-in-jsx-scope': 'off',
 		'react/display-name': 'off',
 		'i18next/no-literal-string': ['error', { markupOnly : true }],
-		'linebreak-style': ['error', 'windows']
+		'linebreak-style': ['error', 'windows'],
 	}
 };

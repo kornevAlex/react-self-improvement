@@ -1,6 +1,6 @@
 .navbar {
 	align-items: center;
-	background: red;
+	background: var(--inverted-bg-color);
 	display: flex;
 	height: var(--navbar-height);
 	justify-content: end;

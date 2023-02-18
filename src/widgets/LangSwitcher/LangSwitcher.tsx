@@ -1,12 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './LangSwitcher.module.scss';
-import { ThemeButton, UTButton } from 'shared/ui/UTButton/UTButton';
+import { ButtonTheme, UTButton } from 'shared/ui/UTButton/UTButton';
 import { useTranslation } from 'react-i18next';
 
 interface LangSwitcherProps {
     className?: string;
+		short?: boolean;
 }
-export const LangSwitcher = ({ className }: LangSwitcherProps) => {
+export const LangSwitcher = ({ className, short }: LangSwitcherProps) => {
 	const { t, i18n } = useTranslation();
 	const toggleLanguage = async () => {
 		i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
@@ -15,10 +16,10 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
 	return (
 		<UTButton
 			className={classNames(cls.LangSwitcher, {}, [className])}
-			theme={ThemeButton.CLEAR}
+			theme={ButtonTheme.CLEAR}
 			onClick={toggleLanguage}
 		>
-			{t('language')}
+			{short ? i18n.language.toUpperCase() : t('language')}
 		</UTButton>
 	);
 };

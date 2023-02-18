@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import ThemeDark from 'shared/img/theme-dark.svg';
 import ThemeLight from 'shared/img/theme-light.svg';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
-import { ThemeButton, UTButton } from 'shared/ui/UTButton/UTButton';
+import { ButtonTheme, UTButton } from 'shared/ui/UTButton/UTButton';
 import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
@@ -15,7 +15,7 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
 		<UTButton
 			onClick={toggleTheme}
 			className={classNames(cls.ThemeSwitcher, {}, [className])}
-			theme={ThemeButton.CLEAR}
+			theme={ButtonTheme.CLEAR}
 		>
 			{theme === Theme.DARK ? <ThemeDark /> : <ThemeLight />}
 		</UTButton>
