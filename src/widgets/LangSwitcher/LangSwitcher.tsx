@@ -19,7 +19,7 @@ export const LangSwitcher = ({ className, short }: LangSwitcherProps) => {
 			theme={ButtonTheme.CLEAR}
 			onClick={toggleLanguage}
 		>
-			{short ? i18n.language.toUpperCase() : t('language')}
+			{short ? i18n.language : t('language')}
 		</UTButton>
 	);
 };

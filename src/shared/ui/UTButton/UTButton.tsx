@@ -35,7 +35,6 @@ export const UTButton: FC<UTButtonProps> = (props) => {
 	const mods: Record<string, boolean> = {
 		[cls.square]: square,
 	};
-	console.log(mods);
 
 	return (
 		<button

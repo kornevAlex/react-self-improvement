@@ -50,12 +50,15 @@ jobs:
       - name: linting typescript
         run: pnpm run lint:ts
 
+        if: always()
       - name: linting css
         run: pnpm run lint:scss
 
+        if: always()
       - name: unit testing
         run: pnpm run test:unit
 
+        if: always()
       - name: build storybook
         run: pnpm run build:sb
 

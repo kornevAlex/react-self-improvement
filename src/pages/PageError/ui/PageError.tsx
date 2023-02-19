@@ -9,7 +9,6 @@ interface PageErrorProps {
 }
 export const PageError = ({ className, error }: PageErrorProps) => {
 	const { t } = useTranslation();
-	console.log(error);
 
 	const reload = () => {
 		location.reload();
