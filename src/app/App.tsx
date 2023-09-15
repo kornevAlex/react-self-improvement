@@ -6,16 +6,6 @@ import { Suspense, useEffect } from 'react';
 import { Navbar, Sidebar } from 'widgets';
 
 const App = () => {
-	const { theme } = useTheme();
-
-	useEffect(() => {
-		const currentTheme = theme;
-		document.body.classList.add(theme);
-
-		return () => {
-			document.body.classList.remove(currentTheme);
-		};
-	}, [theme]);
 
 	return (
 		<div className={classNames('app', {}, [])}>

@@ -6,8 +6,9 @@ import { Portal } from 'shared/ui/Portal/Portal';
 interface ModalProps {
     className?: string;
     children?: ReactElement;
-		isOpen?: boolean;
-		onClose?: () => void;
+	portalTarget?: HTMLElement;
+	isOpen?: boolean;
+	onClose?: () => void;
 }
 export const Modal = (props: ModalProps) => {
 	const {
@@ -15,6 +16,7 @@ export const Modal = (props: ModalProps) => {
 		children,
 		isOpen,
 		onClose,
+		portalTarget,
 	} = props;
 
 	const mods: Record<string, boolean> = {
@@ -41,11 +43,12 @@ export const Modal = (props: ModalProps) => {
 
 
 	return (
-		<Portal>
+		<Portal element={portalTarget}>
 			<div className={classNames(cls.Modal, mods, [className])}>
 				<div className={cls.overlay} onClick={closeHandler}>
 					<div className={cls.content} onClick={(e) => e.stopPropagation()}>
 						{children}
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia, perspiciatis recusandae! Minus quisquam dolorum eius neque velit pariatur odit atque reiciendis laudantium dolores, voluptatem saepe necessitatibus voluptas qui cum sunt.
 					</div>
 				</div>
 			</div>
