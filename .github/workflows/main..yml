@@ -10,7 +10,6 @@ jobs:
     strategy:
       matrix:
         node-version: [ 18.x ]
-        pmpm-version: [ 8.x ]
 
     steps:
       - name: Checkout
@@ -25,7 +24,7 @@ jobs:
         name: Install pnpm
         id: pnpm-install
         with:
-          version: ${{matrix.pnpm-version}}
+          version: 8
           run_install: false
 
       - name: Get pnpm store directory
