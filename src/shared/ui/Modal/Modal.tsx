@@ -48,7 +48,6 @@ export const Modal = (props: ModalProps) => {
 				<div className={cls.overlay} onClick={closeHandler}>
 					<div className={cls.content} onClick={(e) => e.stopPropagation()}>
 						{children}
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia, perspiciatis recusandae! Minus quisquam dolorum eius neque velit pariatur odit atque reiciendis laudantium dolores, voluptatem saepe necessitatibus voluptas qui cum sunt.
 					</div>
 				</div>
 			</div>
