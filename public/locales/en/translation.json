@@ -7,5 +7,6 @@
   "not_found": "Page not found",
   "something_wrong": "Something was wrong",
   "reload": "Reload",
-  "error": "Error"
+  "error": "Error",
+  "header.navbar.button.auth": "Sing in"
 }

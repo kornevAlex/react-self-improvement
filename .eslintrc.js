@@ -7,9 +7,16 @@ module.exports = {
 	'extends': [
 		'eslint:recommended',
 		'plugin:react/recommended',
+		'plugin:react-hooks/recommended',
 		'plugin:@typescript-eslint/recommended'
 	],
 	'overrides': [
+		{
+			files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+			rules: {
+				'i18next/no-literal-string': 'off'
+			}
+		}
 	],
 	'parser': '@typescript-eslint/parser',
 	'parserOptions': {
@@ -48,5 +55,7 @@ module.exports = {
 		'react/display-name': 'off',
 		'i18next/no-literal-string': ['error', { markupOnly : true }],
 		'linebreak-style': ['error', 'windows'],
+		'react-hooks/rules-of-hooks': 'error',
+		'react-hooks/exhaustive-deps': 'error'
 	}
 };
