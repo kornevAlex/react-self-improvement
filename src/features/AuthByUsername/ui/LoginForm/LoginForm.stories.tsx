@@ -23,4 +23,4 @@ export const LightLoginForm = Template.bind({});
 LightLoginForm.args = {
 
 };
-LightLoginForm.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator, i18nDecorator()];
+LightLoginForm.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator, i18nDecorator];
