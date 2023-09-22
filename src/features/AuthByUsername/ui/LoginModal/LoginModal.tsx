@@ -1,5 +1,3 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './LoginModal.module.scss';
 import { LoginForm } from '../LoginForm/LoginForm';
 import { Modal } from 'shared/ui';
 
@@ -8,11 +6,10 @@ interface LoginModalProps {
 	isOpen: boolean;
 	onClose: () => void;
 }
-export const LoginModal = ({ className, isOpen, onClose }: LoginModalProps) => {
+export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
 
 	return (
 		<Modal
-			className={classNames(cls.LangSwitcher, {}, [className])}
 			isOpen={isOpen}
 			onClose={onClose}
 			confirm
