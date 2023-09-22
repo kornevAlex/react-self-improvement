@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux';
 import { ReactElement } from 'react';
-import { createReduxStore } from '../config';
+import { createReduxStore } from '../config/store';
 import { StateSchema } from '../config/StateScheme';
 import { DeepPartial } from '@reduxjs/toolkit';
 

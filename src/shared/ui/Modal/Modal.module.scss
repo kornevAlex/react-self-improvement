@@ -16,10 +16,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .content {
-  padding: 20px;
+  padding: 30px;
   border-radius: 12px;
   background: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
@@ -35,4 +36,10 @@
 .opened {
   opacity: 1;
   pointer-events: all;
+}
+
+.closeButton {
+  position: absolute;
+  right: 0;
+  top: 0;
 }

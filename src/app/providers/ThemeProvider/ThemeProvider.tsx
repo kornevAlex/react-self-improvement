@@ -14,7 +14,6 @@ export const ThemeProvider: FC<ThemeProviderProps>= ({ children, initialTheme })
 		theme,
 		setTheme,
 	}), [theme]);
-	console.log(theme);
 	
 
 	useEffect(() => {
