@@ -12,3 +12,5 @@ i18n
 		debug: __IS_DEV__ ? true : false,
 		react: { useSuspense: false },//this line
 	});
+
+export default i18n;

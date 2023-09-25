@@ -28,17 +28,20 @@ export const UTButton: FC<UTButtonProps> = (props) => {
 		className,
 		theme,
 		square,
+		disabled,
 		size = ButtonSize.M,
 		...otherProps
 	} = props;
 
 	const mods: Record<string, boolean> = {
 		[cls.square]: square,
+		[cls.disabled]: disabled,
 	};
 
 	return (
 		<button
 			className={classNames(cls.UTButton, mods, [className, cls[theme], cls[size]])}
+			disabled={disabled}
 			{...otherProps}
 		>
 			{children}

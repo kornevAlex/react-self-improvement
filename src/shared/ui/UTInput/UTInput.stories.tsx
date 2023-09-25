@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { UTInput } from './UTInput';
-import { ThemeDecorator, i18nDecorator } from 'shared/config/storybook';
+import { ThemeDecorator } from 'shared/config/storybook';
 import { Theme, } from 'app/providers/ThemeProvider';
 export default {
 	title: 'shared/UTInput',
@@ -14,7 +14,7 @@ export const WithPlaceholder = Template.bind({});
 WithPlaceholder.args = {
 	placeholder: 'test placeholder',
 };
-WithPlaceholder.decorators = [ThemeDecorator(Theme.DARK), i18nDecorator];
+WithPlaceholder.decorators = [ThemeDecorator(Theme.DARK)];
 
 
 
@@ -23,5 +23,5 @@ WithPlaceholderAutofocus.args = {
 	placeholder: 'test placeholder',
 	autoFocus: true,
 };
-WithPlaceholderAutofocus.decorators = [ThemeDecorator(Theme.LIGHT), i18nDecorator];
+WithPlaceholderAutofocus.decorators = [ThemeDecorator(Theme.LIGHT)];
 

@@ -1,13 +1,13 @@
 import { BuildPaths } from '../build/types/config';
 import path from 'path';
-import webpack, { RuleSetRule } from 'webpack';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import { buildCSSLoaders } from '../build/loaders/buildCSSLoaders';
 import { buildSVGLoader } from '../build/loaders/buildSVGLoader';
 
 module.exports = async ({ config }: { config: webpack.Configuration }) => {
 	const buildPath: BuildPaths['src'] = path.resolve(__dirname, '..', '..', 'src');
 
-	config.resolve.modules.push(buildPath);
+	config.resolve.modules.unshift(buildPath);
 
 	config.module.rules.push(buildCSSLoaders(true));
 
@@ -20,6 +20,10 @@ module.exports = async ({ config }: { config: webpack.Configuration }) => {
 	});
 
 	config.module.rules.push(buildSVGLoader());
+
+	config.plugins.push(new DefinePlugin({
+		__IS_DEV__: true,
+	}));
 
 	return config;
 };

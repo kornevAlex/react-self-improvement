@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator, RouterDecorator, i18nDecorator } from 'shared/config/storybook';
+import { ThemeDecorator, RouterDecorator } from 'shared/config/storybook';
 import { NotFoundPage } from './NotFoundPage';
 
 export default {
@@ -11,10 +11,10 @@ export default {
 const Template: ComponentStory<typeof NotFoundPage> = (args) => <NotFoundPage {...args} />;
 
 export const DarkNotFoundPage = Template.bind({});
-DarkNotFoundPage.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator, i18nDecorator];
+DarkNotFoundPage.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator];
 DarkNotFoundPage.args = {
 
 };
 
 export const LightNotFoundPage = Template.bind({});
-LightNotFoundPage.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator, i18nDecorator];
+LightNotFoundPage.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator];

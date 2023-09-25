@@ -2,7 +2,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator, RouterDecorator } from 'shared/config/storybook';
 import MainPage from './MainPage';
-import { i18nDecorator } from 'shared/config/storybook/Decorators/i18nDecorator';
 
 export default {
 	title: 'pages/MainPage',
@@ -12,10 +11,10 @@ export default {
 const Template: ComponentStory<typeof MainPage> = () => <MainPage />;
 
 export const DarkMainPage = Template.bind({});
-DarkMainPage.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator, i18nDecorator];
+DarkMainPage.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator];
 DarkMainPage.args = {
 
 };
 
 export const LightMainPage = Template.bind({});
-LightMainPage.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator, i18nDecorator];
+LightMainPage.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator];

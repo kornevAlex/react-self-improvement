@@ -1,8 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator, RouterDecorator } from 'shared/config/storybook';
+import { ThemeDecorator, RouterDecorator, StoreDecorator } from 'shared/config/storybook';
 import { LoginForm } from './LoginForm';
-import { i18nDecorator } from 'shared/config/storybook/Decorators/i18nDecorator';
 
 export default {
 	title: 'features/LoginForm',
@@ -15,7 +14,12 @@ export default {
 const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
 
 export const DarkLoginForm = Template.bind({});
-DarkLoginForm.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator, i18nDecorator];
+DarkLoginForm.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator, StoreDecorator({
+	auth: {
+		username: '123',
+		password: '123'
+	}
+})];
 DarkLoginForm.args = {
 };
 
@@ -23,4 +27,36 @@ export const LightLoginForm = Template.bind({});
 LightLoginForm.args = {
 
 };
-LightLoginForm.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator, i18nDecorator];
+LightLoginForm.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator, StoreDecorator({
+	auth: {
+		username: '123',
+		password: '123'
+	}
+})];
+
+
+export const LoginFormWithError = Template.bind({});
+LoginFormWithError.args = {
+
+};
+LoginFormWithError.decorators = [RouterDecorator, StoreDecorator({
+	auth: {
+		username: '123',
+		password: '123',
+		error: 'Ошибка'
+	}
+})];
+
+
+export const LoginFormLoading = Template.bind({});
+LoginFormLoading.args = {
+
+};
+LoginFormLoading.decorators = [RouterDecorator, StoreDecorator({
+	auth: {
+		username: '123',
+		password: '123',
+		isLoading: true,
+	}
+})];
+

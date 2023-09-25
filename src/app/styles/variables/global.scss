@@ -20,4 +20,11 @@
 
   // Видимость
   --model-z-index: 10;
+
+  // Цвета
+  --seal-brown: #4e0707;
+  --free-speech-red: #b10e0e;
+
+  --color-warning-text: var(--seal-brown);
+  --color-warning-title: var(--free-speech-red);
 }

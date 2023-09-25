@@ -8,5 +8,7 @@
   "something_wrong": "Something was wrong",
   "reload": "Reload",
   "error": "Error",
-  "sign_in": "Sign in"
+  "sign_in": "Sign in",
+  "authorisation_form": "Authorisation form",
+  "sign_out": "Logout"
 }
