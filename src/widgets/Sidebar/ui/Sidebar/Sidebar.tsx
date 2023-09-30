@@ -1,7 +1,7 @@
 import { ButtonSize, ButtonTheme, UTButton } from 'shared/ui/UTButton/UTButton';
 import { LangSwitcher, ThemeSwitcher } from 'widgets';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useState } from 'react';
 import { UTLink } from 'shared/ui';

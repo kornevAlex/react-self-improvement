@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib';
 import cls from './UTLink.module.scss';
 import { Link, LinkProps } from 'react-router-dom';
 import { FC } from 'react';

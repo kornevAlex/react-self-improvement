@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib';
 import { AppRouter } from './providers/router';
 import 'shared/config/i18n/i18n';
 import { Suspense, useEffect } from 'react';

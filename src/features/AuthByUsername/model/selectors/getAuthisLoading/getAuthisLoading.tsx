@@ -3,5 +3,5 @@ import { getAuth } from '../getAuth/getAuth';
 
 export const getAuthisLoading = createSelector(
 	getAuth,
-	(auth) => auth?.isLoading,
+	(auth) => auth?.isLoading || false,
 );

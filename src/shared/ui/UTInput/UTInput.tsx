@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib';
 import cls from './UTInput.module.scss';
 import { InputHTMLAttributes, memo, useCallback, useEffect, useRef, useState } from 'react';
 

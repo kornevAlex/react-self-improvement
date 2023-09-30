@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib';
 import cls from './UTText.module.scss';
 
 export enum TextTheme {

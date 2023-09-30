@@ -3,5 +3,5 @@ import { getAuth } from '../getAuth/getAuth';
 
 export const getAuthUsername = createSelector(
 	getAuth,
-	(auth) => auth?.username,
+	(auth) => auth.username || '',
 );
