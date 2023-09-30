@@ -25,6 +25,6 @@ describe('loginSlice.test', () => {
 		const state: DeepPartial<AuthSchema> = {
 			isLoading: false,
 		};
-		expect(authReducer(state as AuthSchema, authActions.setIsLoading(true))).toEqual({ loading: true });
+		expect(authReducer(state as AuthSchema, authActions.setIsLoading(true))).toEqual({ isLoading: true });
 	});
 });
