@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib';
 import cls from './UTLink.module.scss';
 import { Link, LinkProps } from 'react-router-dom';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 export enum UTLinkTheme {
     PRIMARY = 'primary',
@@ -13,7 +13,7 @@ interface UTLinkProps extends LinkProps{
     theme?: UTLinkTheme;
 }
 
-export const UTLink: FC<UTLinkProps> = (props) => {
+export const UTLink = memo((props: UTLinkProps) => {
 	const {
 		to,
 		children,
@@ -30,4 +30,4 @@ export const UTLink: FC<UTLinkProps> = (props) => {
 			{children}
 		</Link>
 	);
-};
+});

@@ -1,20 +1,16 @@
 import { ButtonSize, ButtonTheme, UTButton } from 'shared/ui/UTButton/UTButton';
 import { LangSwitcher, ThemeSwitcher } from 'widgets';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { useState } from 'react';
-import { UTLink } from 'shared/ui';
+import { memo, useState } from 'react';
 import cls from './Sidebar.module.scss';
-import Home from 'shared/img/home-outline.svg';
-import Info from 'shared/img/info-outline.svg';
+import { SidebarItemsList } from 'widgets/Sidebar/model/items';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
     className?: string;
 }
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
 	const [ collapsed, setCollapsed ] = useState(false);
-	const { t } = useTranslation();
 
 	const onToggle = async () => {
 		setCollapsed(prev => !prev);
@@ -25,24 +21,17 @@ export const Sidebar = ({ className }: SidebarProps) => {
 			className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
 		>
 			<div className={cls.links}>
-				<UTLink
-					to={RoutePath.main}
-					className={cls.link}
-				>
-					<Home className={cls.icon}/>
-					<span className={cls.linkTitle}>
-						{t('main_nav')}
-					</span>
-				</UTLink>
-				<UTLink
-					to={RoutePath.about}
-					className={cls.link}
-				>
-					<Info className={cls.icon}/>
-					<span className={cls.linkTitle}>
-						{t('about_nav')}
-					</span>
-				</UTLink>
+				{SidebarItemsList.map(({ Icon, path, text }) => {
+					return (
+						<SidebarItem
+							key={path}
+							Icon={Icon} 
+							path={path} 
+							text={text} 
+							collapsed={collapsed}
+						/>
+					);
+				})}
 			</div>
 			<UTButton
 				data-testid="sidebar-toggle"
@@ -60,4 +49,4 @@ export const Sidebar = ({ className }: SidebarProps) => {
 			</div>
 		</div>
 	);
-};
+});

@@ -1,2 +1,2 @@
-export { DynamicModuleLoader } from './components/DynamicModuleLoader/DynamicModuleLoader';
+export { DynamicModuleLoader, ReducersList } from './components/DynamicModuleLoader/DynamicModuleLoader';
 export { classNames } from './classNames/classNames';

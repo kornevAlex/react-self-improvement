@@ -2,12 +2,13 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib';
 import cls from './PageError.module.scss';
 import { UTButton } from 'shared/ui/UTButton/UTButton';
+import { memo } from 'react';
 
 interface PageErrorProps {
     className?: string;
 		error: Error;
 }
-export const PageError = ({ className, error }: PageErrorProps) => {
+export const PageError = memo(({ className, error }: PageErrorProps) => {
 	const { t } = useTranslation();
 
 	const reload = () => {
@@ -22,4 +23,4 @@ export const PageError = ({ className, error }: PageErrorProps) => {
 			</UTButton>
 		</div>
 	);
-};
+});

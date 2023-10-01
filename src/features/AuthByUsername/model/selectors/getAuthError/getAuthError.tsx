@@ -3,5 +3,5 @@ import { getAuth } from '../getAuth/getAuth';
 
 export const getAuthError = createSelector(
 	getAuth,
-	(auth) => auth.error,
+	(auth) => auth?.error,
 );

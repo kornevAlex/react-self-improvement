@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, FC, memo } from 'react';
 import { classNames } from 'shared/lib';
 import cls from './UTButton.module.scss';
 
@@ -22,7 +22,7 @@ interface UTButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 		square?: boolean;
 		size?: ButtonSize
 }
-export const UTButton: FC<UTButtonProps> = (props) => {
+export const UTButton = memo((props: UTButtonProps) => {
 	const {
 		children,
 		className,
@@ -47,4 +47,4 @@ export const UTButton: FC<UTButtonProps> = (props) => {
 			{children}
 		</button>
 	);
-};
+});

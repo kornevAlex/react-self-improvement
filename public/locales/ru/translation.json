@@ -11,5 +11,6 @@
   "login": "Введите логин",
   "password": "Введите пароль",
   "authorisation_form": "Форма авторизации",
-  "sign_out": "Выйти"
+  "sign_out": "Выйти",
+  "profile": "Профиль"
 }

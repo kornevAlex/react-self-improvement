@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib';
 import cls from './UTText.module.scss';
+import { memo } from 'react';
 
 export enum TextTheme {
 	ERROR = 'error',
@@ -11,7 +12,7 @@ interface UTTextProps {
 	text?: string;
 	theme?: TextTheme;
 }
-export const UTText = ({ className, title, text, theme }: UTTextProps) => {
+export const UTText = memo(({ className, title, text, theme }: UTTextProps) => {
 
 	return (
 		<div className={classNames(cls.LangSwitcher, {}, [className, cls[theme]])} >
@@ -19,4 +20,4 @@ export const UTText = ({ className, title, text, theme }: UTTextProps) => {
 			{text && <p className={cls.text}>{text}</p>}
 		</div>
 	);
-};
+});

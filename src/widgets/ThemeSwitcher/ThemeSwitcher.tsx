@@ -4,11 +4,12 @@ import ThemeLight from 'shared/img/theme-light.svg';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import { ButtonTheme, UTButton } from 'shared/ui/UTButton/UTButton';
 import cls from './ThemeSwitcher.module.scss';
+import { memo } from 'react';
 
 interface ThemeSwitcherProps {
     className?: string;
 }
-export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
+export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
 	const { theme, toggleTheme } = useTheme();
 
 	return (
@@ -20,4 +21,4 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
 			{theme === Theme.DARK ? <ThemeDark /> : <ThemeLight />}
 		</UTButton>
 	);
-};
+});

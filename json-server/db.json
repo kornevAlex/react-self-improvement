@@ -9,5 +9,15 @@
     "comments": [
       { "id": "1", "body": "some comment", "postId": 1 }
     ],
-    "users": [{ "username": "admin", "password": "123", "id": "1" }]
+    "users": [{ "username": "admin", "password": "123", "id": "1" }],
+    "profile": {
+      "firstname": "Alex",
+      "lastname": "Korny",
+      "age": 24,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "admin",
+      "avatar": "https://i.ytimg.com/vi/9WZ993O-4x0/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLANQjZzLSQL4Fthw6na6g9pGEVgR"
+    }
   }
