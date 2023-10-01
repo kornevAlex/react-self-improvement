@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './ProfilePage.module.scss';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader } from 'shared/lib';
@@ -17,7 +16,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
 	const { t } = useTranslation('profile');
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-			<div className={classNames(cls.LangSwitcher, {}, [className])} >
+			<div>
 				{t('profile-page')}
 			</div>
 		</DynamicModuleLoader>

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { ThunkConfig } from 'app/providers/StoreProvider';
 import { UserType, userActions } from 'entities/User';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 
@@ -8,12 +8,12 @@ interface authByUsernameProps {
     password: string;
 }
 
-export const authByUsername = createAsyncThunk<UserType, authByUsernameProps, {rejectValue: string}>(
+export const authByUsername = createAsyncThunk<UserType, authByUsernameProps, ThunkConfig<string>>(
 	'auth/authByUsername',
-	async (authData, { rejectWithValue, dispatch }) => {
+	async (authData, { rejectWithValue, dispatch, extra }) => {
 		try {
 			
-			const resp = await axios.post<UserType>('http://localhost:8000/login', authData);
+			const resp = await extra.api.post<UserType>('/login', authData);
     
 			if (!resp.data){
 				throw new Error('Data has not received');

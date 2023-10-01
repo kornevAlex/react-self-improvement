@@ -17,6 +17,7 @@ export function buildPlugins (options: BuildOptions): webpack.WebpackPluginInsta
 		}),
 		new webpack.DefinePlugin({
 			__IS_DEV__: JSON.stringify(options.isDev),
+			__API__: JSON.stringify(options.apiUrl),
 		}),
 		options.isDev && new webpack.HotModuleReplacementPlugin(),
 		options.isDev && new ReactRefreshWebpackPlugin(),
