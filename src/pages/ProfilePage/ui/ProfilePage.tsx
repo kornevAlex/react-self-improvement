@@ -14,11 +14,11 @@ interface ProfilePageProps {
     className?: string;
 }
 const ProfilePage = memo(({ className }: ProfilePageProps) => {
-
+	const { t } = useTranslation('profile');
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
 			<div className={classNames(cls.LangSwitcher, {}, [className])} >
-			
+				{t('profile-page')}
 			</div>
 		</DynamicModuleLoader>
 	);

@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator, RouterDecorator } from 'shared/config/storybook';
+import { ThemeDecorator, RouterDecorator, StoreDecorator } from 'shared/config/storybook';
 import ProfilePage from './ProfilePage';
 
 export default {
@@ -11,10 +11,24 @@ export default {
 const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
 
 export const DarkProfilePage = Template.bind({});
-DarkProfilePage.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator];
+DarkProfilePage.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator, StoreDecorator({
+	profile: {
+		data: undefined,
+		readonly: true,
+		error: '',
+		isLoading: false,
+	}
+})];
 DarkProfilePage.args = {
 
 };
 
 export const LightProfilePage = Template.bind({});
-LightProfilePage.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator];
+LightProfilePage.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator, StoreDecorator({
+	profile: {
+		data: undefined,
+		readonly: true,
+		error: '',
+		isLoading: false,
+	}
+})];
