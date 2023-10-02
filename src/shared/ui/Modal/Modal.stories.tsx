@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = (args) => {
-	return <Modal portalTarget={document.getElementById('root')} {...args} />;
+	return <Modal portalTarget={document.getElementById('root') ?? undefined} {...args} />;
 };
 
 export const LightModal = Template.bind({});

@@ -6,9 +6,9 @@ import { memo } from 'react';
 
 interface PageErrorProps {
     className?: string;
-		error: Error;
+	error: Error | null;
 }
-export const PageError = memo(({ className, error }: PageErrorProps) => {
+export const PageError = memo(({ className }: PageErrorProps) => {
 	const { t } = useTranslation();
 
 	const reload = () => {

@@ -13,7 +13,7 @@ export interface ProfileInt {
 
 export interface ProfileSchema {
     data?: ProfileInt;
+    error?: string;
     isLoading: boolean;
-    error: string;
     readonly: boolean;
 }

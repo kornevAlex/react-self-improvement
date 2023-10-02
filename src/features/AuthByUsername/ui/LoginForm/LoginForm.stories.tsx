@@ -17,7 +17,8 @@ export const DarkLoginForm = Template.bind({});
 DarkLoginForm.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator, StoreDecorator({
 	auth: {
 		username: '123',
-		password: '123'
+		password: '123',
+		isLoading: false
 	}
 })];
 DarkLoginForm.args = {
@@ -30,7 +31,8 @@ LightLoginForm.args = {
 LightLoginForm.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator, StoreDecorator({
 	auth: {
 		username: '123',
-		password: '123'
+		password: '123',
+		isLoading: false
 	}
 })];
 
@@ -43,7 +45,8 @@ LoginFormWithError.decorators = [RouterDecorator, StoreDecorator({
 	auth: {
 		username: '123',
 		password: '123',
-		error: 'Ошибка'
+		error: 'Ошибка',
+		isLoading: false
 	}
 })];
 

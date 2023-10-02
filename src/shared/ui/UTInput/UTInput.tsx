@@ -21,7 +21,7 @@ export const UTInput = memo((props: UTInputProps) => {
 		autoFocus,
 	} = props;
 
-	const ref = useRef<HTMLInputElement>();
+	const ref = useRef<HTMLInputElement| null>(null);
 	const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
 		onChange?.(e.target.value);
 		setCaretPosition(e.target.value.length);
@@ -35,7 +35,7 @@ export const UTInput = memo((props: UTInputProps) => {
 		setIsFocused(true);
 	}, []);
 
-	const onSelect = useCallback((e: any) => {
+	const onSelect = useCallback((e) => {
 		setCaretPosition(e?.target?.selectionStart);
 	}, []);
 

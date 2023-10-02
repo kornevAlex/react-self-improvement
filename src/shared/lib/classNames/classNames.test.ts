@@ -21,10 +21,10 @@ describe('classNames', () => {
 	});
 
 	test('with mods undefined', () => {
-		expect(classNames('someClass', { hovered: true, scrollable: undefined }, ['expert', 'test'])).toBe('someClass expert test hovered');
+		expect(classNames('someClass', { hovered: true }, ['expert', 'test'])).toBe('someClass expert test hovered');
 	});
 
 	test('with addition undefined', () => {
-		expect(classNames('someClass', { hovered: true, scrollable: undefined }, ['expert', undefined])).toBe('someClass expert hovered');
+		expect(classNames('someClass', { hovered: true }, ['expert', undefined])).toBe('someClass expert hovered');
 	});
 });

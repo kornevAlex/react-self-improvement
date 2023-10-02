@@ -47,14 +47,14 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 		
 
 	}, [dispatch, username, password, onSuccess]);
-	
+	'';
 	return (
 		<DynamicModuleLoader reducers={reducers}>
 			<div className={classNames(cls.LoginForm, {}, [className])} >
 				<UTText title={t('authorisation_form')}/>
 				{error && <UTText text={error} theme={TextTheme.ERROR}/>}
-				<UTInput type="text" placeholder={t('login')} autoFocus onChange={onChangeLogin} value={username}/>
-				<UTInput type="text" placeholder={t('password')} onChange={onChangePassword} value={password}/>
+				<UTInput type="text" placeholder={t<string>('login')} autoFocus onChange={onChangeLogin} value={username}/>
+				<UTInput type="text" placeholder={t<string>('password')} onChange={onChangePassword} value={password}/>
 				<UTButton className={cls.loginBtn} onClick={onLoginClick} disabled={isLoading}>
 					{t('sign_in')}
 				</UTButton>

@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib';
 import cls from './UTLink.module.scss';
 import { Link, LinkProps } from 'react-router-dom';
-import { FC, memo } from 'react';
+import {  memo } from 'react';
 
 export enum UTLinkTheme {
     PRIMARY = 'primary',

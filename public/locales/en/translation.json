@@ -10,5 +10,6 @@
   "error": "Error",
   "sign_in": "Sign in",
   "authorisation_form": "Authorisation form",
-  "sign_out": "Logout"
+  "sign_out": "Logout",
+  "password": "Input password"
 }

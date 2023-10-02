@@ -1,9 +1,10 @@
-import { ButtonHTMLAttributes, FC, memo } from 'react';
+import { ButtonHTMLAttributes, memo } from 'react';
 import { classNames } from 'shared/lib';
 import cls from './UTButton.module.scss';
+import { Mods } from 'shared/lib/classNames/classNames';
 
 export enum ButtonTheme {
-    CLEAR = 'clear',
+		CLEAR = 'clear',
 		OUTLINE = 'outline',
 		BACKGROUND = 'background',
 		BACKGROUND_INVERTED = 'backgroundInverted',
@@ -26,14 +27,14 @@ export const UTButton = memo((props: UTButtonProps) => {
 	const {
 		children,
 		className,
-		theme,
+		theme = ButtonTheme.OUTLINE,
 		square,
 		disabled,
 		size = ButtonSize.M,
 		...otherProps
 	} = props;
 
-	const mods: Record<string, boolean> = {
+	const mods: Mods = {
 		[cls.square]: square,
 		[cls.disabled]: disabled,
 	};

@@ -12,6 +12,7 @@
       "baseUrl": ".",
       "forceConsistentCasingInFileNames": true,
       "strictBindCallApply": true,
+      "strict": true,
       "paths": {
         "*": ["./src/*"]
       },

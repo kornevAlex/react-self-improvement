@@ -11,6 +11,7 @@ i18n
 		fallbackLng: 'en',
 		debug: __IS_DEV__ ? true : false,
 		react: { useSuspense: false },//this line
+		returnNull: false,
 	});
 
 export default i18n;

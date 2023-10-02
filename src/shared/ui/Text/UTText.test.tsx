@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { TextTheme, UTText } from './UTText';
+import { UTText } from './UTText';
 describe('UTText', () => {
 	test('UTText with empty params', () => {
 		render(<UTText text='TEST'/>);

@@ -29,17 +29,14 @@ export const LoginSlice = createSlice({
 		builder
 			.addCase(authByUsername.pending, (state) => {
 				state.error = undefined;
-				console.log('pending');
 				
 				state.isLoading = true;
 			})
 			.addCase(authByUsername.fulfilled, (state) => {
 				state.isLoading = false;
-				console.log('ful');
 			})
 			.addCase(authByUsername.rejected, (state, action) => {
 				state.isLoading = false;
-				console.log('rej');
 				state.error = action.payload;
 			});
 	},

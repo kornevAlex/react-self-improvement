@@ -6,6 +6,8 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins (options: BuildOptions): webpack.WebpackPluginInstance[]{
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+	// @ts-ignore
 	return [
 		new HtmlWebpackPlugin({
 			template: options.paths.html
@@ -24,5 +26,5 @@ export function buildPlugins (options: BuildOptions): webpack.WebpackPluginInsta
 		options.isDev && new BundleAnalyzerPlugin({
 			openAnalyzer: false,
 		})
-	].filter(Boolean);
+	].filter(el => el !== false);
 }

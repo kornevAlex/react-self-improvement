@@ -15,7 +15,7 @@ export const SidebarItem= memo(({ Icon, path, text, collapsed }: SidebarItemProp
 			to={path}
 			className={classNames(cls.link, { [cls.collapsed]: collapsed }) }
 		>
-			<Icon className={cls.icon}/>
+			{Icon && <Icon className={cls.icon}/>}
 			<span className={cls.linkTitle}>
 				{text}
 			</span>

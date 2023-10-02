@@ -23,7 +23,8 @@ export const authByUsername = createAsyncThunk<UserType, authByUsernameProps, Th
 
 			return resp.data;
 		} catch (error){
-			return rejectWithValue(error.message);
+			const err = error as Error;
+			return rejectWithValue(err.message);
 		}
 	}
 );

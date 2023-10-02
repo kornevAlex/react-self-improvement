@@ -3,6 +3,7 @@ import cls from './Modal.module.scss';
 import { ReactElement, useCallback, useEffect } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import { ButtonSize, ButtonTheme, UTButton } from '../UTButton/UTButton';
+import { Mods } from 'shared/lib/classNames/classNames';
 
 interface ModalProps {
     className?: string;
@@ -16,13 +17,13 @@ export const Modal = (props: ModalProps) => {
 	const {
 		className,
 		children,
-		isOpen,
-		onClose,
+		isOpen = false,
+		onClose = () => {},
 		portalTarget,
 		confirm,
 	} = props;
 
-	const mods: Record<string, boolean> = {
+	const mods: Mods = {
 		[cls.opened]: isOpen,
 	};
 
@@ -40,6 +41,7 @@ export const Modal = (props: ModalProps) => {
 	const onOverlayClick = useCallback(() => {
 		if (!confirm && isOpen) closeHandler();
 	}, [closeHandler, isOpen, confirm]);
+
 	useEffect(() => {
 		window.addEventListener('keydown', onKeyDown);
 
@@ -48,17 +50,18 @@ export const Modal = (props: ModalProps) => {
 		};
 	}, [isOpen, onKeyDown]);
 
-
 	return (
 		<Portal element={portalTarget}>
-			{isOpen && <div className={classNames(cls.Modal, mods, [className])}>
-				<div className={cls.overlay} onClick={onOverlayClick}>
-					<div className={cls.content} onClick={(e) => e.stopPropagation()}>
-						{children}
-						{ confirm && <UTButton className={cls.closeButton} onClick={closeHandler} square theme={ButtonTheme.CLEAR} size={ButtonSize.L}>X</UTButton>}
+			<>
+				{isOpen && <div className={classNames(cls.Modal, mods, [className])}>
+					<div className={cls.overlay} onClick={onOverlayClick}>
+						<div className={cls.content} onClick={(e) => e.stopPropagation()}>
+							{children}
+							{ confirm && <UTButton className={cls.closeButton} onClick={closeHandler} square theme={ButtonTheme.CLEAR} size={ButtonSize.L}>X</UTButton>}
+						</div>
 					</div>
-				</div>
-			</div>}
+				</div>}
+			</>
 		</Portal>
 	);
 };

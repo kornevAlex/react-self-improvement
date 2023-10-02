@@ -4,15 +4,16 @@ import { memo } from 'react';
 
 export enum TextTheme {
 	ERROR = 'error',
+	PRIMARY = 'primary'
 }
 
 interface UTTextProps {
 	className?: string;
-	title?: string;
-	text?: string;
+	title?: string | null;
+	text?: string | null;
 	theme?: TextTheme;
 }
-export const UTText = memo(({ className, title, text, theme }: UTTextProps) => {
+export const UTText = memo(({ className, title, text, theme = TextTheme.PRIMARY }: UTTextProps) => {
 
 	return (
 		<div className={classNames(cls.LangSwitcher, {}, [className, cls[theme]])} >

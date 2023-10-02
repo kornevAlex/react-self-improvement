@@ -1,3 +1,7 @@
 {
-  "profile-page": "Страница профиля"
+  "profile": "Страница профиля",
+  "update": "Редактировать",
+  "your_firstname": "Ваше имя",
+  "your_lastname": "Ваша фамилия",
+  "your_city": "Ваш город"
 }

@@ -1,13 +1,8 @@
-import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { CounterActions } from '../model/slice/CounterSlice';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 
-interface CounterProps {
-    className?: string;
-}
-export const Counter = ({ className }: CounterProps) => {
-	const { t, i18n } = useTranslation();
+export const Counter = () => {
 	const dispatch = useDispatch();
 	const value = useSelector(getCounterValue);
 
