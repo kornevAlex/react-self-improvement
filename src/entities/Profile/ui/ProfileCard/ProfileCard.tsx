@@ -2,33 +2,56 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ProfileCard.module.scss';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
-import { UTText } from 'shared/ui/Text/UTText';
-import { UTButton } from 'shared/ui';
-import { ButtonTheme } from 'shared/ui/UTButton/UTButton';
+import { TextAlign, TextTheme, UTText } from 'shared/ui/Text/UTText';
+import { Loader } from 'shared/ui';
 import { UTInput } from 'shared/ui/UTInput/UTInput';
+import { ProfileInt } from '../..//model/types/profile';
 
 interface ProfileCardProps {
     className?: string;
+	profile?: ProfileInt;
+	error?: string;
+	isLoading?: boolean;
+	readonly?: boolean;
+	onChangeFirstname: (value?: string) => void;
+	onChangeLastname: (value?: string) => void;
 }
-export const ProfileCard: FC<ProfileCardProps> = ({ className }) => {
+export const ProfileCard: FC<ProfileCardProps> = ({ className, profile, error, isLoading, onChangeFirstname, onChangeLastname, readonly }) => {
 	const { t } = useTranslation('profile');
-	const data = useSelector(getProfileData);
 
+	if (isLoading){
+		return (
+			<div className={classNames(cls.ProfileCard, {}, [className, cls.loader])} >
+				<Loader  />
+			</div>
+		);
+	}
+
+	if (error){
+		return (
+			<div className={classNames(cls.ProfileCard, {}, [className, cls.error])} >
+				<UTText theme={TextTheme.ERROR} title='Произошла непредвиденная ошибка' text={error} align={TextAlign.CENTER}/>
+			</div>
+		);
+	}
 
 	return (
-		<div className={classNames(cls.LangSwitcher, {}, [className])} >
-			<div className={cls.header}>
-				<UTText title={t('profile')}/>
-				<UTButton className={cls.editBtn} theme={ButtonTheme.OUTLINE}>
-					{t('update')}
-				</UTButton>
-			</div>
+		<div className={classNames(cls.ProfileCard, {}, [className])} >
 			<div className={cls.data}>
-				<UTInput value={data?.firstname} placeholder={t<string>('your_firstname')} className={cls.input}/>
-				<UTInput value={data?.lastname} placeholder={t<string>('your_lastname')} className={cls.input}/>
-				<UTInput value={data?.city} placeholder={t<string>('your_city')} className={cls.input}/>
+				<UTInput
+					value={profile?.firstname}
+					placeholder={t('your_firstname')}
+					className={cls.input}
+					readonly={readonly}
+					onChange={onChangeFirstname}
+				/>
+				<UTInput
+					value={profile?.lastname} 
+					placeholder={t('your_lastname')} 
+					className={cls.input} 
+					readonly={readonly}
+					onChange={onChangeLastname}
+				/>
 			</div>
 		</div>
 	);

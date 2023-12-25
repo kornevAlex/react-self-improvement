@@ -6,6 +6,8 @@ import { Mods } from 'shared/lib/classNames/classNames';
 export enum ButtonTheme {
 		CLEAR = 'clear',
 		OUTLINE = 'outline',
+		OUTLINE_INVERTED = 'outline_inverted',
+		ERROR = 'error',
 		BACKGROUND = 'background',
 		BACKGROUND_INVERTED = 'backgroundInverted',
 
@@ -20,8 +22,8 @@ export enum ButtonSize {
 interface UTButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ButtonTheme;
-		square?: boolean;
-		size?: ButtonSize
+	square?: boolean;
+	size?: ButtonSize
 }
 export const UTButton = memo((props: UTButtonProps) => {
 	const {

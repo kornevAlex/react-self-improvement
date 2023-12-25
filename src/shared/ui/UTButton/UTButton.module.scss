@@ -18,6 +18,18 @@
     background: none;
 }
 
+.outline_inverted {
+    border: 1px solid var(--inverted-primary-color);
+    color: var(--inverted-primary-color);
+    background:  var(--primary-color);
+}
+
+.error {
+    border: none;
+    color: var(--white);
+    background:  var( --color-warning-title);
+}
+
 .background {
     background-color: var(--bg-color);
     color: var(--primary-color);

@@ -1,4 +1,5 @@
 {
-  "profile": "profile",
-  "update": "update"
+  "profile": "Profile",
+  "update": "Update",
+  "profile.save": "Save\n"
 }

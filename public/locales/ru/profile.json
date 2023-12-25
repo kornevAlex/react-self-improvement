@@ -1,7 +1,9 @@
 {
-  "profile": "Страница профиля",
+  "profile": "Профиль",
   "update": "Редактировать",
   "your_firstname": "Ваше имя",
   "your_lastname": "Ваша фамилия",
-  "your_city": "Ваш город"
+  "your_city": "Ваш город",
+  "profile.save": "Сохранить\n",
+  "cancel": "Отменить"
 }
