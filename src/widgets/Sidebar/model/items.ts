@@ -5,24 +5,24 @@ import Profile from 'shared/img/profile.svg';
 
 export interface SidebarItemInterface {
     path: string;
-    text: string;
+    textKey: string;
     Icon?: React.VFC<React.SVGProps<SVGSVGElement>>
 }
 
 export const SidebarItemsList: SidebarItemInterface[] = [
 	{
 		path: RoutePath.main,
-		text: 'Главная',
+		textKey: 'main_nav',
 		Icon: Home
 	},
 	{
 		path: RoutePath.about,
-		text: 'О нас',
+		textKey: 'about_nav',
 		Icon: Info
 	},
 	{
 		path: RoutePath.profile,
-		text: 'Профиль',
+		textKey: 'profile',
 		Icon: Profile
 	},
 ];

@@ -30,7 +30,6 @@ export function createReduxStore (initialState?: StateSchema, asyncReducers?:  R
 			}
 		})
 	});
-	// eslint-disable-next-line
 	// @ts-ignore
 	store.reducerManager = reducerManager;
 

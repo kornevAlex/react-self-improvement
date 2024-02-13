@@ -6,8 +6,8 @@ export { getProfileError } from './model/selectors/getProfileError/getProfileErr
 
 export { ProfileCard } from './ui/ProfileCard/ProfileCard';
 
-export { fetchProfileData } from './model/services/fetchProfileData';
+export { requestProfileData } from './model/services/requestProfileData';
 
 export { profileActions, profileReducer } from './model/slice/profileSlice';
 
-export { ProfileInt, ProfileSchema } from './model/types/profile';
+export { Profile, ProfileSchema } from './model/types/profile';

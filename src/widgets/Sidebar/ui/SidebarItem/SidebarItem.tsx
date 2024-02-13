@@ -8,7 +8,7 @@ interface SidebarItemProps extends SidebarItemInterface {
     collapsed: boolean;
 }
 
-export const SidebarItem= memo(({ Icon, path, text, collapsed }: SidebarItemProps) => {
+export const SidebarItem= memo(({ Icon, path, textKey, collapsed }: SidebarItemProps) => {
     
 	return (
 		<UTLink
@@ -17,7 +17,7 @@ export const SidebarItem= memo(({ Icon, path, text, collapsed }: SidebarItemProp
 		>
 			{Icon && <Icon className={cls.icon}/>}
 			<span className={cls.linkTitle}>
-				{text}
+				{textKey}
 			</span>
 		</UTLink>
 	);

@@ -1,5 +1,10 @@
 {
   "profile": "Profile",
+  "save": "Save",
   "update": "Update",
-  "profile.save": "Save\n"
+  "your_city": "City",
+  "your_age": "Age",
+  "your_lastname": "Lastname",
+  "your_firstname": "Firstname",
+  "cancel": "Cancel"
 }

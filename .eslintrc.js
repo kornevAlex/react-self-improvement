@@ -57,6 +57,7 @@ module.exports = {
 		'linebreak-style': ['error', 'windows'],
 		'react-hooks/rules-of-hooks': 'error',
 		'react-hooks/exhaustive-deps': 'error',
-		'@typescript-eslint/no-empty-function': 'off'
+		'@typescript-eslint/no-empty-function': 'off',
+		'@typescript-eslint/ban-ts-comment': 'off'
 	}
 };

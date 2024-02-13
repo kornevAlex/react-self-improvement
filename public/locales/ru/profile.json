@@ -4,6 +4,7 @@
   "your_firstname": "Ваше имя",
   "your_lastname": "Ваша фамилия",
   "your_city": "Ваш город",
-  "profile.save": "Сохранить\n",
-  "cancel": "Отменить"
+  "your_age": "Ваш возраст",
+  "cancel": "Отменить",
+  "save": "Сохранить"
 }

@@ -26,6 +26,7 @@
     "include": [
       "./config/jest/jest-setup.ts",
       "./**/*.ts",
-      "./**/*.tsx", "json-server/server.js",
+      "./**/*.tsx",
+      "json-server/server.js",
     ],
   }

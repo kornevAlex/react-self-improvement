@@ -7,10 +7,18 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | '
 
 interface UTInputProps extends HTMLInputProps{
 	className?: string;
-	value?: string;
+	value?: string | number;
 	onChange?: (value: string) => void;
 	readonly?: boolean;
+	mod?: InputMod;
 }
+
+export enum InputMod {
+	DEFAULT = 'default',
+	NUM = 'number',
+
+} 
+
 export const UTInput = memo((props: UTInputProps) => {
 	const [isFocused, setIsFocused] = useState(false);
 	const [caretPosition, setCaretPosition] = useState(0);
@@ -22,11 +30,14 @@ export const UTInput = memo((props: UTInputProps) => {
 		type = 'text',
 		placeholder,
 		autoFocus,
-		readonly = false
+		readonly = false,
+		mod = InputMod.DEFAULT,
 	} = props;
 
 	const ref = useRef<HTMLInputElement| null>(null);
 	const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (mod === InputMod.NUM && /\D/.test(e.target.value)) return;
+
 		if (!readonly){
 			onChange?.(e.target.value);
 			setCaretPosition(e.target.value.length);

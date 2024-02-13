@@ -1,4 +1,4 @@
-import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
+import { DeepPartial } from '@reduxjs/toolkit';
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { profileReducer } from 'entities/Profile';
@@ -12,7 +12,7 @@ const defaultAsyncReducers: ReducersList = {
 
 export const StoreDecorator = (
 	state: DeepPartial<StateSchema>,
-	asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>,
+	asyncReducers?: ReducersList,
 ) => (Story: Story) => (
 	<StoreProvider initialState={state} asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}>
 		<Story />

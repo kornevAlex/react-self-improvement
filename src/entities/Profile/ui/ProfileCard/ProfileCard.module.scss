@@ -7,9 +7,18 @@
     margin-top: 10px;
 }
 
+.data {
+    display: flex;
+    gap: 20px;
+}
+
 .error,
 .loader {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.editing {
+    border: 2px solid var(--inverted-primary-color);
 }

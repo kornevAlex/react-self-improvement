@@ -1,14 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { ProfileInt } from '../types/profile';
+import { Profile } from '../types/profile';
 
-export const fetchProfileData = createAsyncThunk<ProfileInt, void, ThunkConfig<string>>(
-	'profile/fetchProfileData',
+export const requestProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
+	'profile/requestProfileData',
 	async (_, thunkApi) => {
 		const { rejectWithValue, extra } = thunkApi;
         
 		try {
-			const resp = await extra.api.get<ProfileInt>('/profile');
+			const resp = await extra.api.get<Profile>('/profile');
     
 			if (!resp.data){
 				throw new Error('Data has not received');

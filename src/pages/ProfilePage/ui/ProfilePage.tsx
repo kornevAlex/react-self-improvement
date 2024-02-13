@@ -1,10 +1,12 @@
 import { memo, useCallback, useEffect } from 'react';
 import { DynamicModuleLoader } from 'shared/lib';
-import { ProfileCard, fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, profileActions, profileReducer } from 'entities/Profile';
+import { ProfileCard, requestProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, profileActions, profileReducer } from 'entities/Profile';
 import { ReducersList } from 'shared/lib';
 import { useApppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
 
 const reducers: ReducersList= {
 	profile: profileReducer
@@ -17,7 +19,7 @@ const ProfilePage = memo(() => {
 	const readonly = useSelector(getProfileReadonly);
 
 	useEffect(() => {
-		dispatch(fetchProfileData());
+		dispatch(requestProfileData());
 	}, [dispatch]);
 
 	const onChangeFirstname = useCallback((value?: string) => {
@@ -26,6 +28,30 @@ const ProfilePage = memo(() => {
 
 	const onChangeLastname = useCallback((value?: string) => {
 		dispatch(profileActions.setProfileData({ lastname: value || '' }));
+	}, [dispatch]);
+
+	const onChangeAge = useCallback((value?: string) => {
+		dispatch(profileActions.setProfileData({ age: Number(value || 0) }));
+	}, [dispatch]);
+
+	const onChangeCity = useCallback((value?: string) => {
+		dispatch(profileActions.setProfileData({ city: value || '' }));
+	}, [dispatch]);
+
+	const onChangeAvatar = useCallback((value?: string) => {
+		dispatch(profileActions.setProfileData({ avatar: value || '' }));
+	}, [dispatch]);
+
+	const onChangeUsername = useCallback((value?: string) => {
+		dispatch(profileActions.setProfileData({ username: value || '' }));
+	}, [dispatch]);
+
+	const onChangeCurrency = useCallback((currency?: Currency) => {
+		dispatch(profileActions.setProfileData({ currency }));
+	}, [dispatch]);
+	
+	const onChangeCountry = useCallback((country?: Country) => {
+		dispatch(profileActions.setProfileData({ country }));
 	}, [dispatch]);
 	
 	return (
@@ -38,6 +64,12 @@ const ProfilePage = memo(() => {
 				readonly={readonly}
 				onChangeFirstname={onChangeFirstname}
 				onChangeLastname={onChangeLastname}
+				onChangeAge={onChangeAge}
+				onChangeCity={onChangeCity}
+				onChangeAvatar={onChangeAvatar}
+				onChangeUsername={onChangeUsername}
+				onChangeCurrency={onChangeCurrency}
+				onChangeCountry={onChangeCountry}
 			/>
 		</DynamicModuleLoader>
 	);

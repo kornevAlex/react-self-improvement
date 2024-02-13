@@ -5,12 +5,14 @@ import { memo, useState } from 'react';
 import cls from './Sidebar.module.scss';
 import { SidebarItemsList } from 'widgets/Sidebar/model/items';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
+import { useTranslation } from 'react-i18next';
 
 interface SidebarProps {
     className?: string;
 }
 export const Sidebar = memo(({ className }: SidebarProps) => {
 	const [ collapsed, setCollapsed ] = useState(false);
+	const { t } = useTranslation();
 
 	const onToggle = async () => {
 		setCollapsed(prev => !prev);
@@ -21,13 +23,13 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 			className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
 		>
 			<div className={cls.links}>
-				{SidebarItemsList.map(({ Icon, path, text }) => {
+				{SidebarItemsList.map(({ Icon, path, textKey }) => {
 					return (
 						<SidebarItem
 							key={path}
-							Icon={Icon} 
+							Icon={Icon}
 							path={path} 
-							text={text} 
+							textKey={t(`${textKey}`)} 
 							collapsed={collapsed}
 						/>
 					);

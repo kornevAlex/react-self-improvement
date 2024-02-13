@@ -8,6 +8,7 @@ import { ButtonTheme } from 'shared/ui/UTButton/UTButton';
 import { useSelector } from 'react-redux';
 import { getProfileReadonly, profileActions } from 'entities/Profile';
 import { useApppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { updateProfileData } from 'entities/Profile/model/services/updateProfileData';
 
 interface ProfilePageHeaderProps {
     className?: string;
@@ -18,6 +19,11 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => 
 
 	const readonly = useSelector(getProfileReadonly);
 	const onEdit = useCallback(() => {
+		dispatch(profileActions.setReadonly(!readonly));
+	}, [dispatch, readonly]);
+
+	const onSave = useCallback(() => {
+		dispatch(updateProfileData());
 		dispatch(profileActions.setReadonly(!readonly));
 	}, [dispatch, readonly]);
 
@@ -33,14 +39,14 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => 
 					{t('update')}
 				</UTButton>
 			) : (
-				<>
-					<UTButton className={cls.editBtn} theme={ButtonTheme.OUTLINE} onClick={onEdit}>
+				<div className={cls.groupBtn}>
+					<UTButton className={cls.editBtn} theme={ButtonTheme.OUTLINE} onClick={onSave}>
 						{t('save')}
 					</UTButton>
 					<UTButton className={cls.editBtn} theme={ButtonTheme.ERROR} onClick={onCancel}>
 						{t('cancel')}
 					</UTButton>
-				</>
+				</div>
 			)
 			}
 		</div>

@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { ProfileInt, ProfileSchema } from '../types/profile';
-import { fetchProfileData } from '../services/fetchProfileData';
+import { Profile, ProfileSchema } from '../types/profile';
+import { requestProfileData } from '../services/requestProfileData';
+import { updateProfileData } from '../services/updateProfileData';
 
 const initialState: ProfileSchema = {
 	readonly: true,
@@ -13,9 +14,9 @@ export const profileSlice = createSlice({
 	name: 'profile',
 	initialState,
 	reducers: {
-		setProfileData: (state, { payload }: PayloadAction<ProfileInt>) => {
+		setProfileData: (state, { payload }: PayloadAction<Profile>) => {
 			state.form = {
-				...state.data,
+				...state.form,
 				...payload,
 			};
 		},
@@ -25,20 +26,33 @@ export const profileSlice = createSlice({
 		cancelEdit: (state) => {
 			state.readonly = true;
 			state.form = state.data;
-		}
+		},
 	},
 	extraReducers (builder){
 		builder
-			.addCase(fetchProfileData.pending, (state) => {
+			.addCase(requestProfileData.pending, (state) => {
 				state.error = undefined;
 				state.isLoading = true;
 			})
-			.addCase(fetchProfileData.fulfilled, (state, { payload }: PayloadAction<ProfileInt>) => {
+			.addCase(requestProfileData.fulfilled, (state, { payload }: PayloadAction<Profile>) => {
 				state.isLoading = false;
 				state.data = payload;
 				state.form = payload;
 			})
-			.addCase(fetchProfileData.rejected, (state, { payload }) => {
+			.addCase(requestProfileData.rejected, (state, { payload }) => {
+				state.isLoading = false;
+				state.error = payload;
+			})
+			.addCase(updateProfileData.pending, (state) => {
+				state.error = undefined;
+				state.isLoading = true;
+			})
+			.addCase(updateProfileData.fulfilled, (state, { payload }: PayloadAction<Profile>) => {
+				state.isLoading = false;
+				state.data = payload;
+				state.form = payload;
+			})
+			.addCase(updateProfileData.rejected, (state, { payload }) => {
 				state.isLoading = false;
 				state.error = payload;
 			});

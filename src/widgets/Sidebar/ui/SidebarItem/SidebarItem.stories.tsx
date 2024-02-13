@@ -18,7 +18,7 @@ DarkSidebarItem.args = {
 	collapsed: false,
 	Icon: Profile,
 	path: './test',
-	text: 'Dark Sidebar Item'
+	textKey: 'Dark Sidebar Item'
 };
 
 
@@ -27,7 +27,7 @@ LightSidebarItem.args = {
 	collapsed: false,
 	Icon: Profile,
 	path: './test',
-	text: 'Light Sidebar Item'
+	textKey: 'Light Sidebar Item'
 };
 LightSidebarItem.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator];
 
@@ -37,6 +37,6 @@ CollapsedSidebarItem.args = {
 	collapsed: true,
 	Icon: Profile,
 	path: './test',
-	text: 'Light Sidebar Item'
+	textKey: 'Light Sidebar Item'
 };
 CollapsedSidebarItem.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator];
