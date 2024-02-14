@@ -24,8 +24,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => 
 
 	const onSave = useCallback(() => {
 		dispatch(updateProfileData());
-		dispatch(profileActions.setReadonly(!readonly));
-	}, [dispatch, readonly]);
+	}, [dispatch]);
 
 	const onCancel = useCallback(() => {
 		dispatch(profileActions.cancelEdit());

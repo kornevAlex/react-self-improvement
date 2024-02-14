@@ -19,6 +19,7 @@ export const profileSlice = createSlice({
 				...state.form,
 				...payload,
 			};
+			state.readonly = false;
 		},
 		setReadonly: (state, { payload }: PayloadAction<boolean>) => {
 			state.readonly = payload;
@@ -26,6 +27,7 @@ export const profileSlice = createSlice({
 		cancelEdit: (state) => {
 			state.readonly = true;
 			state.form = state.data;
+			state.validateErrors = undefined;
 		},
 	},
 	extraReducers (builder){
@@ -44,17 +46,18 @@ export const profileSlice = createSlice({
 				state.error = payload;
 			})
 			.addCase(updateProfileData.pending, (state) => {
-				state.error = undefined;
+				state.validateErrors = undefined;
 				state.isLoading = true;
 			})
 			.addCase(updateProfileData.fulfilled, (state, { payload }: PayloadAction<Profile>) => {
 				state.isLoading = false;
 				state.data = payload;
 				state.form = payload;
+				state.validateErrors = undefined;
 			})
-			.addCase(updateProfileData.rejected, (state, { payload }) => {
+			.addCase(updateProfileData.rejected, (state, action) => {
 				state.isLoading = false;
-				state.error = payload;
+				state.validateErrors = action.payload;
 			});
 	},
 });

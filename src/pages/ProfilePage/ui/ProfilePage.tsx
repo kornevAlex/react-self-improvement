@@ -1,12 +1,13 @@
 import { memo, useCallback, useEffect } from 'react';
 import { DynamicModuleLoader } from 'shared/lib';
-import { ProfileCard, requestProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, profileActions, profileReducer } from 'entities/Profile';
+import { ProfileCard, requestProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, profileActions, profileReducer, getProfileValidateError } from 'entities/Profile';
 import { ReducersList } from 'shared/lib';
 import { useApppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { TextTheme, UTText } from 'shared/ui/Text/UTText';
 
 const reducers: ReducersList= {
 	profile: profileReducer
@@ -17,6 +18,7 @@ const ProfilePage = memo(() => {
 	const isLoading = useSelector(getProfileIsLoading);
 	const error = useSelector(getProfileError);
 	const readonly = useSelector(getProfileReadonly);
+	const validateErrors = useSelector(getProfileValidateError);
 
 	useEffect(() => {
 		dispatch(requestProfileData());
@@ -57,6 +59,9 @@ const ProfilePage = memo(() => {
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
 			<ProfilePageHeader />
+			{validateErrors?.length && validateErrors.map((err, i) => (
+				<UTText key={i} text={err} theme={TextTheme.ERROR} />
+			))}
 			<ProfileCard
 				profile={formData}
 				error={error}

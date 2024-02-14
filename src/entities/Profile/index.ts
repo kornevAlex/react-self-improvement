@@ -3,6 +3,7 @@ export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProf
 export { getProfileIsLoading } from './model/selectors/getPProfileIsLoading/getPProfileIsLoading';
 export { getProfileData } from './model/selectors/getProfileData/getProfileData';
 export { getProfileError } from './model/selectors/getProfileError/getProfileError';
+export { getProfileValidateError } from './model/selectors/getProfileValidateError/getProfileValidateError';
 
 export { ProfileCard } from './ui/ProfileCard/ProfileCard';
 
