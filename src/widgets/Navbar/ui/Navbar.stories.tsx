@@ -11,21 +11,21 @@ export default {
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 
 export const DarkNavbar = Template.bind({});
-DarkNavbar.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator, StoreDecorator({})];
+DarkNavbar.decorators = [ThemeDecorator(Theme.DARK),  StoreDecorator({}), RouterDecorator];
 DarkNavbar.args = {
 
 };
 
 export const LightNavbar = Template.bind({});
-LightNavbar.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator, StoreDecorator({})];
+LightNavbar.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({}), RouterDecorator];
 
 
 export const AuthNavbar = Template.bind({});
-AuthNavbar.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator, StoreDecorator({
+AuthNavbar.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
 	user: {
 		authData: {
 			username: 'My Name',
 			id: '5',
 		}
 	}
-})];
+}), RouterDecorator];

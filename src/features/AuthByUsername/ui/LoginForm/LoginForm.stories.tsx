@@ -14,13 +14,13 @@ export default {
 const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
 
 export const DarkLoginForm = Template.bind({});
-DarkLoginForm.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator, StoreDecorator({
+DarkLoginForm.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
 	auth: {
 		username: '123',
 		password: '123',
 		isLoading: false
 	}
-})];
+}), RouterDecorator];
 DarkLoginForm.args = {
 };
 
@@ -28,38 +28,38 @@ export const LightLoginForm = Template.bind({});
 LightLoginForm.args = {
 
 };
-LightLoginForm.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator, StoreDecorator({
+LightLoginForm.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
 	auth: {
 		username: '123',
 		password: '123',
 		isLoading: false
 	}
-})];
+}), RouterDecorator];
 
 
 export const LoginFormWithError = Template.bind({});
 LoginFormWithError.args = {
 
 };
-LoginFormWithError.decorators = [RouterDecorator, StoreDecorator({
+LoginFormWithError.decorators = [StoreDecorator({
 	auth: {
 		username: '123',
 		password: '123',
 		error: 'Ошибка',
 		isLoading: false
 	}
-})];
+}), RouterDecorator];
 
 
 export const LoginFormLoading = Template.bind({});
 LoginFormLoading.args = {
 
 };
-LoginFormLoading.decorators = [RouterDecorator, StoreDecorator({
+LoginFormLoading.decorators = [StoreDecorator({
 	auth: {
 		username: '123',
 		password: '123',
 		isLoading: true,
 	}
-})];
+}), RouterDecorator];
 
