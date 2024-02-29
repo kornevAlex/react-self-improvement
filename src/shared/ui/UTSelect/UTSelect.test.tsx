@@ -3,10 +3,10 @@ import { UTSelect } from './UTSelect';
 describe('UTSelect', () => {
 	test('UTSelect with empty params', () => {
 		render(<UTSelect />);
-		expect(screen.getByTestId('input')).toBeInTheDocument();
+		expect(screen.getByTestId('select')).toBeInTheDocument();
 	});
 	test('UTSelect with with theme', () => {
-		render(<UTSelect placeholder="test"/>);
-		expect(screen.getByText('test>')).toHaveClass('placeholder');
+		render(<UTSelect label="test"/>);
+		expect(screen.getByText('test')).toHaveClass('label');
 	});
 });

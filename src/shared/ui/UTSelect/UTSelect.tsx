@@ -33,7 +33,7 @@ export const UTSelect: FC<UTSelectProps> = ({ className, label, options, value, 
 	};
 
 	return (
-		<div className={classNames(cls.Wrapper, {}, [className])} >
+		<div data-testid="select" className={classNames(cls.Wrapper, {}, [className])} >
 			{label && 
 			<span className={cls.label}>
 				{label}
