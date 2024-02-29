@@ -11,14 +11,16 @@ interface ThemeSwitcherProps {
 }
 export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
 	const { theme, toggleTheme } = useTheme();
-
+	
 	return (
 		<UTButton
 			onClick={toggleTheme}
 			className={classNames(cls.ThemeSwitcher, {}, [className])}
 			theme={ButtonTheme.CLEAR}
 		>
-			{theme === Theme.DARK ? <ThemeDark /> : <ThemeLight />}
+			{theme === Theme.DARK && <ThemeDark />}
+			{theme === Theme.LIGHT && <ThemeLight />}
+			{theme === Theme.GREEN && <ThemeLight />}
 		</UTButton>
 	);
 });
