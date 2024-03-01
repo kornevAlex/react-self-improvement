@@ -3,11 +3,12 @@ import { AppRouter } from './providers/router';
 import 'shared/config/i18n/i18n';
 import { Suspense, useEffect } from 'react';
 import { Navbar, Sidebar } from 'widgets';
-import { userActions } from 'entities/User';
-import { useDispatch } from 'react-redux';
+import { getUserInited, userActions } from 'entities/User';
+import { useDispatch, useSelector } from 'react-redux';
 
 const App = () => {
 	const dispatch = useDispatch();
+	const inited = useSelector(getUserInited);
 
 	useEffect(() => {
 		dispatch(userActions.initAuthData());
@@ -19,7 +20,7 @@ const App = () => {
 				<Navbar />
 				<div className="content-page">
 					<Sidebar />
-					<AppRouter />
+					{inited && <AppRouter />}
 				</div>
 			</Suspense>
 		</div>
