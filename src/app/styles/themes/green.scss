@@ -5,5 +5,10 @@
     --primary-color: #1C8D3F;
     --inverted-primary-color:  #F4FBF7;
     --inverted-secondary-color:  #0b0408;
+    --skeleton-loading: linear-gradient(90deg, var(--inverted-bg-color) 25%, var(--primary-color) 35%, var( --inverted-bg-color) 63%);
+    --skeleton-content: var(--secondary-color);
+    --skeleton-shadow: rgba(0 0 0  20%);
 
+    // Code
+    --code-bg: #fff;
 }

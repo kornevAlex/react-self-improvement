@@ -21,6 +21,7 @@ const ProfilePage = memo(() => {
 	const validateErrors = useSelector(getProfileValidateError);
 
 	useEffect(() => {
+		if (__PROJECT__ !== 'frontend') return;
 		dispatch(requestProfileData());
 	}, [dispatch]);
 

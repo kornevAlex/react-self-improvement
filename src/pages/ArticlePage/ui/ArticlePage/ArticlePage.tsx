@@ -11,7 +11,6 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
 
 	return (
 		<div className={classNames(cls.ArticlePage, {}, [className])} >
-     ARTICLE PAGE
 		</div>
 	);
 };

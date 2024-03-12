@@ -19,11 +19,21 @@
     margin-right: 5px;
 }
 
+.caret {
+    position: absolute;
+    background: var( --inverted-primary-color);
+    width: 10px;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    animation: blink .8s forwards infinite;
+}
+
 .readonly {
     opacity: 0.7;
     cursor: default;
     
-    .caret {
+    & .caret {
         display: none;
     }
 
@@ -36,16 +46,6 @@
 .caretWrapper {
     flex-grow: 1;
     position: relative;
-}
-
-.caret {
-    position: absolute;
-    background: var( --inverted-primary-color);
-    width: 10px;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    animation: blink .8s forwards infinite;
 }
 
 @keyframes blink {
