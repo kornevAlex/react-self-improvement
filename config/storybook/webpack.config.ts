@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { BuildPaths } from '../build/types/config';
 import path from 'path';
 import webpack, { DefinePlugin } from 'webpack';

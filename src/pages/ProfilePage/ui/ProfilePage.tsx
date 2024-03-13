@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { DynamicModuleLoader } from 'shared/lib';
 import { ProfileCard, requestProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, profileActions, profileReducer, getProfileValidateError } from 'entities/Profile';
 import { ReducersList } from 'shared/lib';

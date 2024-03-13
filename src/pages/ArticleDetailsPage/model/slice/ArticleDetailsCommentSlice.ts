@@ -1,4 +1,4 @@
-import { Dictionary, PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { CommentType } from 'entities/Comment';
 import { ArticleDetailsCommentSchema } from '../types/ArticleDetailsCommentSchema';

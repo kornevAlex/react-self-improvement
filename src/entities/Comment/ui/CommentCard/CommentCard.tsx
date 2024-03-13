@@ -10,7 +10,7 @@ interface CommentCardProps {
   isLoading: boolean;
 }
 export const CommentCard: FC<CommentCardProps> = ({ className, comment, isLoading }) => {
-  const { id, text, user } = comment;
+  const { text, user } = comment;
 
   if (isLoading){
     return (

@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleDetailsPage.module.scss';
-import { FC, memo, useEffect } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
@@ -30,7 +30,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 	useInitialEffect(() => {
 		dispatch(fetchCommentArticleById(id));
 	});
-	
+
 	if (!id){
 		return (
 			<div>

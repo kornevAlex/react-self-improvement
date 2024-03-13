@@ -2,8 +2,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator, RouterDecorator, StoreDecorator } from 'shared/config/storybook';
 import ArticleDetailsPage from './ArticleDetailsPage';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
 import { Article, ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 
 const article: Article = {

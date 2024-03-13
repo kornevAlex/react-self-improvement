@@ -1,7 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleImageBlock.module.scss';
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { ArticleImageBlock as ImageBlock } from 'entities/Article/model/types/article';
 import { UTText } from 'shared/ui';
 import { TextAlign } from 'shared/ui/Text/UTText';
@@ -12,7 +11,6 @@ interface ArticleImageBlockProps {
 }
 
 export const ArticleImageBlock = memo(({ className, block }: ArticleImageBlockProps) => {
-	const { t, i18n } = useTranslation();
 
 	return (
 		<div className={classNames(cls.ArticleImageBlock, {}, [className])}>
