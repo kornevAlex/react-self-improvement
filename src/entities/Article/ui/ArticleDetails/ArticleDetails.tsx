@@ -15,6 +15,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib';
 import { Icon, Avatar, Skeleton } from 'shared/ui';
 import EyeIcon from 'shared/img/eye-icos.svg';
 import CalendarIcon from 'shared/img/calendar-icon.svg';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -42,11 +43,10 @@ export const ArticleDetails: FC<ArticleDetailsProps> = ({ id }) => {
 		}
 	}, []);
 
-	useEffect(() => {
-		if (__PROJECT__ !== 'frontend') return;
+	useInitialEffect(() => {
 		dispatch(requestArticleById(id));
-	}, [id, dispatch]);
-
+	});
+	
 	let content;
 	if (isLoading){
 		content = (

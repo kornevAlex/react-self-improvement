@@ -1,18 +1,20 @@
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
+import { NavigateFunction } from 'react-router-dom';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { AuthSchema } from 'features/AuthByUsername';
-import { NavigateFunction } from 'react-router-dom';
+import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 
 export interface StateSchema {
-    counter: CounterSchema,
-    user: UserSchema,
-    auth?: AuthSchema,
-    profile?: ProfileSchema
-    articleDetails?: ArticleDetailsSchema
+    counter: CounterSchema;
+    user: UserSchema;
+    auth?: AuthSchema;
+    profile?: ProfileSchema;
+    articleDetails?: ArticleDetailsSchema;
+    articleDetailsComments?: ArticleDetailsCommentSchema;
 }
 
 export interface ReducerManager {

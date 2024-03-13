@@ -8,6 +8,7 @@ import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { TextTheme, UTText } from 'shared/ui/Text/UTText';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 
 const reducers: ReducersList= {
 	profile: profileReducer
@@ -20,10 +21,9 @@ const ProfilePage = memo(() => {
 	const readonly = useSelector(getProfileReadonly);
 	const validateErrors = useSelector(getProfileValidateError);
 
-	useEffect(() => {
-		if (__PROJECT__ !== 'frontend') return;
+	useInitialEffect(() => {
 		dispatch(requestProfileData());
-	}, [dispatch]);
+	});
 
 	const onChangeFirstname = useCallback((value?: string) => {
 		dispatch(profileActions.setProfileData({ firstname: value || '' }));
