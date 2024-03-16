@@ -2,7 +2,7 @@ import cls from './SidebarItem.module.scss';
 import { memo } from 'react';
 import { classNames } from 'shared/lib';
 import { UTLink } from 'shared/ui';
-import { SidebarItemInterface } from 'widgets/Sidebar/model/items';
+import { SidebarItemInterface } from 'widgets/Sidebar/model/types/sidebar';
 
 interface SidebarItemProps extends SidebarItemInterface {
     collapsed: boolean;

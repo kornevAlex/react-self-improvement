@@ -3,9 +3,10 @@ import { LangSwitcher, ThemeSwitcher } from 'widgets';
 import { classNames } from 'shared/lib';
 import { memo, useState } from 'react';
 import cls from './Sidebar.module.scss';
-import { SidebarItemsList } from 'widgets/Sidebar/model/items';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 
 interface SidebarProps {
     className?: string;
@@ -13,6 +14,7 @@ interface SidebarProps {
 export const Sidebar = memo(({ className }: SidebarProps) => {
 	const [ collapsed, setCollapsed ] = useState(false);
 	const { t } = useTranslation();
+	const sidebarItems = useSelector(getSidebarItems);
 
 	const onToggle = async () => {
 		setCollapsed(prev => !prev);
@@ -23,7 +25,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 			className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
 		>
 			<div className={cls.links}>
-				{SidebarItemsList.map(({ Icon, path, textKey }) => {
+				{sidebarItems.map(({ Icon, path, textKey }) => {
 					return (
 						<SidebarItem
 							key={path}
