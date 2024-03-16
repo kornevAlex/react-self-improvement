@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-undef */
 const fs = require('fs');
 const jsonServer = require('json-server');
 const path = require('path');
@@ -38,6 +40,27 @@ server.post('/login', (req, res) => {
 		return res.status(500).json({ message: e.message });
 	}
 });
+
+// Эндпоинт для логина
+server.post('/comments', (req, res) => {
+	try {
+		const { text, userId, articleId } = req.body;
+		const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
+		const { comments = [] } = db;
+
+		comments.push({
+			id: comments.length + 1,
+			articleId,
+			userId,
+			text,
+		});
+
+	} catch (e){
+		console.log(e);
+		return res.status(500).json({ message: e.message });
+	}
+});
+
 
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
