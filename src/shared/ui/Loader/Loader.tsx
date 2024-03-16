@@ -9,7 +9,7 @@ interface LoaderProps {
 
 export const Loader: React.FC<LoaderProps> = ({ size = 'medium', className }) => {
   return (
-	<div className={classNames(cls.loader, {}, [className, cls[`loader-${size}`]])}>
+    <div className={classNames(cls.loader, {}, [className, cls[`loader-${size}`]])}>
       <div className={cls['loader-inner']} />
     </div>
   );

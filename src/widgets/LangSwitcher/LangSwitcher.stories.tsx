@@ -4,8 +4,8 @@ import { ThemeDecorator, RouterDecorator } from 'shared/config/storybook';
 import { LangSwitcher } from './LangSwitcher';
 
 export default {
-	title: 'widget/LangSwitcher',
-	component: LangSwitcher,
+  title: 'widget/LangSwitcher',
+  component: LangSwitcher,
 } as ComponentMeta<typeof LangSwitcher>;
 
 const Template: ComponentStory<typeof LangSwitcher> = (args) => <LangSwitcher {...args} />;

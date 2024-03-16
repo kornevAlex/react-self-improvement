@@ -9,24 +9,24 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: FC<ThemeProviderProps>= ({ children, initialTheme }) => {
-	const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
-	const defaultProps = useMemo(() => ({
-		theme,
-		setTheme,
-	}), [theme]);
+  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+  const defaultProps = useMemo(() => ({
+    theme,
+    setTheme,
+  }), [theme]);
 	
 
-	useEffect(() => {
-		document.body.classList.add(theme);
+  useEffect(() => {
+    document.body.classList.add(theme);
 
-		return () => {
-			document.body.classList.remove(theme);
-		};
-	}, [theme]);
+    return () => {
+      document.body.classList.remove(theme);
+    };
+  }, [theme]);
 	
-	return (
-		<ThemeContext.Provider value={defaultProps}>
-			{children}
-		</ThemeContext.Provider>
-	);
+  return (
+    <ThemeContext.Provider value={defaultProps}>
+      {children}
+    </ThemeContext.Provider>
+  );
 };

@@ -6,31 +6,31 @@ import { $api } from 'shared/api/api';
 import { NavigateFunction } from 'react-router-dom';
 
 export function createReduxStore (initialState?: StateSchema, asyncReducers?:  ReducersMapObject<StateSchema>, navigate?: NavigateFunction){
-	const rootRedusers: ReducersMapObject<StateSchema> = {
-		...asyncReducers,
-		user: userReducer,
-	};
+  const rootRedusers: ReducersMapObject<StateSchema> = {
+    ...asyncReducers,
+    user: userReducer,
+  };
 
-	const reducerManager = createReducerManager(rootRedusers);
+  const reducerManager = createReducerManager(rootRedusers);
 
-	const extraArgs = {
-		api: $api,
-		navigate
-	};
+  const extraArgs = {
+    api: $api,
+    navigate
+  };
 
-	const store = configureStore({
-		reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
-		devTools: __IS_DEV__,
-		preloadedState: initialState,
-		middleware: getDefaultMiddleware => getDefaultMiddleware({
-			thunk: {
-				extraArgument: extraArgs
-			}
-		})
-	});
-	// @ts-ignore
-	store.reducerManager = reducerManager;
+  const store = configureStore({
+    reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
+    devTools: __IS_DEV__,
+    preloadedState: initialState,
+    middleware: getDefaultMiddleware => getDefaultMiddleware({
+      thunk: {
+        extraArgument: extraArgs
+      }
+    })
+  });
+    // @ts-ignore
+  store.reducerManager = reducerManager;
 
-	return store;
+  return store;
 }
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

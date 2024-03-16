@@ -4,8 +4,8 @@ import { ThemeDecorator } from 'shared/config/storybook';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 export default {
-	title: 'widget/ThemeSwitcher',
-	component: ThemeSwitcher,
+  title: 'widget/ThemeSwitcher',
+  component: ThemeSwitcher,
 } as ComponentMeta<typeof ThemeSwitcher>;
 
 const Template: ComponentStory<typeof ThemeSwitcher> = (args) => <ThemeSwitcher {...args} />;

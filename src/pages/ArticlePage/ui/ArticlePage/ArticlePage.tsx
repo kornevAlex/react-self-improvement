@@ -7,12 +7,12 @@ interface ArticlePageProps {
   className?: string;
 }
 const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
-	const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-	return (
-		<div className={classNames(cls.ArticlePage, {}, [className])} >
-		</div>
-	);
+  return (
+    <div className={classNames(cls.ArticlePage, {}, [className])} >
+    </div>
+  );
 };
 
 export default memo(ArticlePage);

@@ -11,14 +11,14 @@ interface ArticleTextBlockProps {
   block: IArticleTextBlock;
 }
 export const ArticleTextBlock = memo(({ className, block }: ArticleTextBlockProps) => {
-	return (
-		<div className={classNames(cls.ArticleTextBlock, {}, [className])}>
-			{block.title && (
-				<UTText title={block.title} className={cls.title} />
-			)}
-			{block.paragraphs.map((paragraph, i) => (
-				<UTText key={paragraph + i} text={paragraph} className={cls.paragraph} />
-			))}
-		</div>
-	);
+  return (
+    <div className={classNames(cls.ArticleTextBlock, {}, [className])}>
+      {block.title && (
+        <UTText title={block.title} className={cls.title} />
+      )}
+      {block.paragraphs.map((paragraph, i) => (
+        <UTText key={paragraph + i} text={paragraph} className={cls.paragraph} />
+      ))}
+    </div>
+  );
 });

@@ -9,15 +9,15 @@ interface LoginModalProps {
 }
 export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
 
-	return (
-		<Modal
-			isOpen={isOpen}
-			onClose={onClose}
-			confirm
-		>
-			<Suspense fallback={<Loader />}>
-				<LoginFormAsync onSuccess={onClose}/>
-			</Suspense>
-		</Modal>
-	);
+  return (
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      confirm
+    >
+      <Suspense fallback={<Loader />}>
+        <LoginFormAsync onSuccess={onClose}/>
+      </Suspense>
+    </Modal>
+  );
 };

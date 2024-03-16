@@ -19,14 +19,14 @@ interface CompoundedComponent {
 
 // eslint-disable-next-line react/prop-types
 export const Skeleton: CompoundedComponent & FC<SkeletonProps> = ({ className, height, borderRadius, width, size }) => {
-	const styles: CSSProperties = {
-		height: size || height,
-		width: size || width,
-		borderRadius,
-	};
-	return (
-		<div style={styles} className={classNames(cls.Skeleton, {}, [className])} />
-	);
+  const styles: CSSProperties = {
+    height: size || height,
+    width: size || width,
+    borderRadius,
+  };
+  return (
+    <div style={styles} className={classNames(cls.Skeleton, {}, [className])} />
+  );
 };
 
 Skeleton.Image = Image;

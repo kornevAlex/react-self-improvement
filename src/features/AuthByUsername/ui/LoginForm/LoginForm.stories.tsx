@@ -4,22 +4,22 @@ import { ThemeDecorator, RouterDecorator, StoreDecorator } from 'shared/config/s
 import LoginForm from './LoginForm';
 
 export default {
-	title: 'features/LoginForm',
-	args: {
-		children: 'test',
-	},
-	component: LoginForm,
+  title: 'features/LoginForm',
+  args: {
+    children: 'test',
+  },
+  component: LoginForm,
 } as ComponentMeta<typeof LoginForm>;
 
 const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
 
 export const DarkLoginForm = Template.bind({});
 DarkLoginForm.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-	auth: {
-		username: '123',
-		password: '123',
-		isLoading: false
-	}
+  auth: {
+    username: '123',
+    password: '123',
+    isLoading: false
+  }
 }), RouterDecorator];
 DarkLoginForm.args = {
 };
@@ -29,11 +29,11 @@ LightLoginForm.args = {
 
 };
 LightLoginForm.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
-	auth: {
-		username: '123',
-		password: '123',
-		isLoading: false
-	}
+  auth: {
+    username: '123',
+    password: '123',
+    isLoading: false
+  }
 }), RouterDecorator];
 
 
@@ -42,12 +42,12 @@ LoginFormWithError.args = {
 
 };
 LoginFormWithError.decorators = [StoreDecorator({
-	auth: {
-		username: '123',
-		password: '123',
-		error: 'Ошибка',
-		isLoading: false
-	}
+  auth: {
+    username: '123',
+    password: '123',
+    error: 'Ошибка',
+    isLoading: false
+  }
 }), RouterDecorator];
 
 
@@ -56,10 +56,10 @@ LoginFormLoading.args = {
 
 };
 LoginFormLoading.decorators = [StoreDecorator({
-	auth: {
-		username: '123',
-		password: '123',
-		isLoading: true,
-	}
+  auth: {
+    username: '123',
+    password: '123',
+    isLoading: true,
+  }
 }), RouterDecorator];
 

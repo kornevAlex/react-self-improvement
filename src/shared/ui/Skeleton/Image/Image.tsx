@@ -7,15 +7,15 @@ import { SkeletonProps } from '../Skeleton';
 
 export const Image: FC<SkeletonProps> = ({ borderRadius, height, width, className }) => {
 
-	const styles: CSSProperties = {
-		height,
-		borderRadius,
-		width
-	};
+  const styles: CSSProperties = {
+    height,
+    borderRadius,
+    width
+  };
   
-	return (
-		<div style={styles} className={classNames(cls.Image, {}, [parentCls.Skeleton, className])}>
-			<ImageIcon />
-		</div>
-	);
+  return (
+    <div style={styles} className={classNames(cls.Image, {}, [parentCls.Skeleton, className])}>
+      <ImageIcon />
+    </div>
+  );
 };

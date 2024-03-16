@@ -11,21 +11,21 @@ interface CurrencySelectProps {
 }
 
 export const CurrencySelect: FC<CurrencySelectProps> = memo(({ value, readonly, onChange }: CurrencySelectProps) => {
-	const { t } = useTranslation();
-	const countryOptions = useMemo(() => Object.entries(Currency).map((val) => ({ value: val[0], content: val[1] })), []);
+  const { t } = useTranslation();
+  const countryOptions = useMemo(() => Object.entries(Currency).map((val) => ({ value: val[0], content: val[1] })), []);
 
-	const onChangeHandler = useCallback((event) => {
-		onChange?.(event.target.value);
-	}, [onChange]);
+  const onChangeHandler = useCallback((event) => {
+    onChange?.(event.target.value);
+  }, [onChange]);
 
-	return (
-		<UTSelect
-			label={t('choose_money_type')}
-			options={countryOptions}
-			value={value}
-			readonly={readonly}
-			onChange={onChangeHandler}>
+  return (
+    <UTSelect
+      label={t('choose_money_type')}
+      options={countryOptions}
+      value={value}
+      readonly={readonly}
+      onChange={onChangeHandler}>
             
-		</UTSelect>
-	);
+    </UTSelect>
+  );
 });

@@ -20,72 +20,72 @@ export enum InputMod {
 } 
 
 export const UTInput = memo((props: UTInputProps) => {
-	const [isFocused, setIsFocused] = useState(false);
-	const [caretPosition, setCaretPosition] = useState(0);
+  const [isFocused, setIsFocused] = useState(false);
+  const [caretPosition, setCaretPosition] = useState(0);
 
-	const {
-		className,
-		value,
-		onChange,
-		type = 'text',
-		placeholder,
-		autoFocus,
-		readonly = false,
-		mod = InputMod.DEFAULT,
-	} = props;
+  const {
+    className,
+    value,
+    onChange,
+    type = 'text',
+    placeholder,
+    autoFocus,
+    readonly = false,
+    mod = InputMod.DEFAULT,
+  } = props;
 
-	const ref = useRef<HTMLInputElement| null>(null);
-	const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-		if (mod === InputMod.NUM && /\D/.test(e.target.value)) return;
+  const ref = useRef<HTMLInputElement| null>(null);
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (mod === InputMod.NUM && /\D/.test(e.target.value)) return;
 
-		if (!readonly){
-			onChange?.(e.target.value);
-			setCaretPosition(e.target.value.length);
-		}
-	};
+    if (!readonly){
+      onChange?.(e.target.value);
+      setCaretPosition(e.target.value.length);
+    }
+  };
 
-	const onBlur = useCallback(() => {
-		setIsFocused(false);
-	}, []);
+  const onBlur = useCallback(() => {
+    setIsFocused(false);
+  }, []);
 
-	const onFocus = useCallback(() => {
-		setIsFocused(true);
-	}, []);
+  const onFocus = useCallback(() => {
+    setIsFocused(true);
+  }, []);
 
-	const onSelect = useCallback((e) => {
-		setCaretPosition(e?.target?.selectionStart);
-	}, []);
+  const onSelect = useCallback((e) => {
+    setCaretPosition(e?.target?.selectionStart);
+  }, []);
 
-	useEffect(() => {
-		if(autoFocus){
-			setIsFocused(true);
-			ref.current?.focus();
-		}
-	}, [autoFocus]);
+  useEffect(() => {
+    if(autoFocus){
+      setIsFocused(true);
+      ref.current?.focus();
+    }
+  }, [autoFocus]);
 
-	const mods: Mods = {
-		[cls.readonly]: readonly,
-	}; 
+  const mods: Mods = {
+    [cls.readonly]: readonly,
+  }; 
 
-	return (
-		<div data-testid="input" className={classNames(cls.InputWrapper, mods, [className])} >
-			{placeholder && <div className={cls.placeholder}>
-				{placeholder + '>'}
-			</div>}
-			<div className={cls.caretWrapper}>
-				<input
-					ref={ref}
-					value={value}
-					className={cls.input}
-					type={type}
-					readOnly={readonly}
-					onChange={onChangeHandler}
-					onBlur={onBlur}
-					onFocus={onFocus}
-					onSelect={onSelect}
-				/>
-				{isFocused && <span className={cls.caret} style={{ left: `${caretPosition * 8.8}px` }}/>}
-			</div>
-		</div>
-	);
+  return (
+    <div data-testid="input" className={classNames(cls.InputWrapper, mods, [className])} >
+      {placeholder && <div className={cls.placeholder}>
+        {placeholder + '>'}
+      </div>}
+      <div className={cls.caretWrapper}>
+        <input
+          ref={ref}
+          value={value}
+          className={cls.input}
+          type={type}
+          readOnly={readonly}
+          onChange={onChangeHandler}
+          onBlur={onBlur}
+          onFocus={onFocus}
+          onSelect={onSelect}
+        />
+        {isFocused && <span className={cls.caret} style={{ left: `${caretPosition * 8.8}px` }}/>}
+      </div>
+    </div>
+  );
 });

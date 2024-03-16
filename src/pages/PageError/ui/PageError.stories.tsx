@@ -4,8 +4,8 @@ import { ThemeDecorator, RouterDecorator } from 'shared/config/storybook';
 import { PageError } from './PageError';
 
 export default {
-	title: 'pages/PageError',
-	component: PageError,
+  title: 'pages/PageError',
+  component: PageError,
 } as ComponentMeta<typeof PageError>;
 
 const Template: ComponentStory<typeof PageError> = (args) => <PageError {...args} />;

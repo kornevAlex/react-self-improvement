@@ -14,54 +14,54 @@ interface ModalProps {
 	onClose?: () => void;
 }
 export const Modal = (props: ModalProps) => {
-	const {
-		className,
-		children,
-		isOpen = false,
-		onClose = () => {},
-		portalTarget,
-		confirm,
-	} = props;
+  const {
+    className,
+    children,
+    isOpen = false,
+    onClose = () => {},
+    portalTarget,
+    confirm,
+  } = props;
 
-	const mods: Mods = {
-		[cls.opened]: isOpen,
-	};
+  const mods: Mods = {
+    [cls.opened]: isOpen,
+  };
 
-	const closeHandler = useCallback(() => {
-		onClose();
-	}, [onClose]);
+  const closeHandler = useCallback(() => {
+    onClose();
+  }, [onClose]);
 
 
-	const onKeyDown = useCallback((e: KeyboardEvent) => {
-		if (e.key === 'Escape' && isOpen){
-			closeHandler();
-		}
-	}, [closeHandler, isOpen]);
+  const onKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape' && isOpen){
+      closeHandler();
+    }
+  }, [closeHandler, isOpen]);
 
-	const onOverlayClick = useCallback(() => {
-		if (!confirm && isOpen) closeHandler();
-	}, [closeHandler, isOpen, confirm]);
+  const onOverlayClick = useCallback(() => {
+    if (!confirm && isOpen) closeHandler();
+  }, [closeHandler, isOpen, confirm]);
 
-	useEffect(() => {
-		window.addEventListener('keydown', onKeyDown);
+  useEffect(() => {
+    window.addEventListener('keydown', onKeyDown);
 
-		return () => {
-			window.removeEventListener('keydown', onKeyDown);
-		};
-	}, [isOpen, onKeyDown]);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [isOpen, onKeyDown]);
 
-	return (
-		<Portal element={portalTarget}>
-			<>
-				{isOpen && <div className={classNames(cls.Modal, mods, [className])}>
-					<div className={cls.overlay} onClick={onOverlayClick}>
-						<div className={cls.content} onClick={(e) => e.stopPropagation()}>
-							{children}
-							{ confirm && <UTButton className={cls.closeButton} onClick={closeHandler} square theme={ButtonTheme.CLEAR} size={ButtonSize.L}>X</UTButton>}
-						</div>
-					</div>
-				</div>}
-			</>
-		</Portal>
-	);
+  return (
+    <Portal element={portalTarget}>
+      <>
+        {isOpen && <div className={classNames(cls.Modal, mods, [className])}>
+          <div className={cls.overlay} onClick={onOverlayClick}>
+            <div className={cls.content} onClick={(e) => e.stopPropagation()}>
+              {children}
+              { confirm && <UTButton className={cls.closeButton} onClick={closeHandler} square theme={ButtonTheme.CLEAR} size={ButtonSize.L}>X</UTButton>}
+            </div>
+          </div>
+        </div>}
+      </>
+    </Portal>
+  );
 };

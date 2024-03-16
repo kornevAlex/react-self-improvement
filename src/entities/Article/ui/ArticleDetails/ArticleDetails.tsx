@@ -23,64 +23,64 @@ interface ArticleDetailsProps {
 }
 
 const reducers: ReducersList = {
-	articleDetails: articleDetailsReducer,
+  articleDetails: articleDetailsReducer,
 };
 
 export const ArticleDetails: FC<ArticleDetailsProps> = ({ id }) => {
-	const { t } = useTranslation();
-	const dispatch = useAppDispatch();
-	const isLoading = useSelector(getArticleDetailsLoading);
-	const error = useSelector(getArticleDetailsError);
-	const article = useSelector(getArticleDetailsData);
+  const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+  const isLoading = useSelector(getArticleDetailsLoading);
+  const error = useSelector(getArticleDetailsError);
+  const article = useSelector(getArticleDetailsData);
 	
-	const renderBlock = useCallback((block: ArticleBlock) => {
-		switch (block.type){
-		case ArticleBlockType.TEXT: return <ArticleTextBlock key={block.id + block.type} className={cls.articleBlock} block={block}/>;
-		case ArticleBlockType.CODE: return <ArticleCodeBlock key={block.id + block.type} block={block} className={cls.articleBlock} />;
-		case ArticleBlockType.IMAGE: return <ArticleImageBlock key={block.id + block.type} block={block} className={cls.articleBlock} />;
-		default: return null;
-		}
-	}, []);
+  const renderBlock = useCallback((block: ArticleBlock) => {
+    switch (block.type){
+    case ArticleBlockType.TEXT: return <ArticleTextBlock key={block.id + block.type} className={cls.articleBlock} block={block}/>;
+    case ArticleBlockType.CODE: return <ArticleCodeBlock key={block.id + block.type} block={block} className={cls.articleBlock} />;
+    case ArticleBlockType.IMAGE: return <ArticleImageBlock key={block.id + block.type} block={block} className={cls.articleBlock} />;
+    default: return null;
+    }
+  }, []);
 
-	useInitialEffect(() => {
-		dispatch(requestArticleById(id));
-	});
+  useInitialEffect(() => {
+    dispatch(requestArticleById(id));
+  });
 	
-	let content;
-	if (isLoading){
-		content = (
-			<>
-				<Skeleton.Avatar className={cls.avatar} size='200px'/>
-				<Skeleton width='300px' height='32px'/>
-				<Skeleton width='300px' height='24px'/>
-				<Skeleton width='100%' height='200px'/>
-			</>
-		);
-	} else if (error){
-		content = (
-			<UTText title={`${t('something_went_wrong')}: ${error}`} theme={TextTheme.ERROR}/>
-		);
-	} else {
-		content = (
-			<>
-				<Avatar alt='avatar' src={article?.img} size={200} className={cls.avatar }/>
-				<UTText title={article?.title} text={article?.subtitle} size={TextSize.L}/>
-				<div className={cls.info}>
-					<Icon className={cls.articleIcon} Svg={EyeIcon}/>
-					<UTText text={String(article?.views)} />
-				</div>
-				<div className={cls.info}>
-					<Icon className={cls.articleIcon} Svg={CalendarIcon}/>
-					<UTText text={article?.createdAt} />
-				</div>
-				{article?.blocks.map(renderBlock)}
-			</>
-		);
-	}
+  let content;
+  if (isLoading){
+    content = (
+      <>
+        <Skeleton.Avatar className={cls.avatar} size='200px'/>
+        <Skeleton width='300px' height='32px'/>
+        <Skeleton width='300px' height='24px'/>
+        <Skeleton width='100%' height='200px'/>
+      </>
+    );
+  } else if (error){
+    content = (
+      <UTText title={`${t('something_went_wrong')}: ${error}`} theme={TextTheme.ERROR}/>
+    );
+  } else {
+    content = (
+      <>
+        <Avatar alt='avatar' src={article?.img} size={200} className={cls.avatar }/>
+        <UTText title={article?.title} text={article?.subtitle} size={TextSize.L}/>
+        <div className={cls.info}>
+          <Icon className={cls.articleIcon} Svg={EyeIcon}/>
+          <UTText text={String(article?.views)} />
+        </div>
+        <div className={cls.info}>
+          <Icon className={cls.articleIcon} Svg={CalendarIcon}/>
+          <UTText text={article?.createdAt} />
+        </div>
+        {article?.blocks.map(renderBlock)}
+      </>
+    );
+  }
 
-	return (
-		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-			{content}
-		</DynamicModuleLoader>
-	);
+  return (
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+      {content}
+    </DynamicModuleLoader>
+  );
 };

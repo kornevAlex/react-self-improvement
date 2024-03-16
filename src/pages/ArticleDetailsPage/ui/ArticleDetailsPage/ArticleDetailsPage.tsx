@@ -20,41 +20,41 @@ interface ArticleDetailsPageProps {
   className?: string;
 }
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
-	const { t } = useTranslation('article');
-	const { id = '' } = useParams<{id: string}>();
-	const comments = useSelector(getArticleComments.selectAll);
-	const commentIsLoading = useSelector(getArticleDetailsCommentLoading) || false;
-	const dispatch = useAppDispatch();
-	const reducers: ReducersList = {
-		articleDetailsComments: articleDetailsCommentReducer,
-	};
+  const { t } = useTranslation('article');
+  const { id = '' } = useParams<{id: string}>();
+  const comments = useSelector(getArticleComments.selectAll);
+  const commentIsLoading = useSelector(getArticleDetailsCommentLoading) || false;
+  const dispatch = useAppDispatch();
+  const reducers: ReducersList = {
+    articleDetailsComments: articleDetailsCommentReducer,
+  };
 	
-	useInitialEffect(() => {
-		dispatch(fetchCommentArticleById(id));
-	});
-	const onSendComment = useCallback((text) => {
-		dispatch(sendCommentForArticle(text));
-	}, [dispatch]);
+  useInitialEffect(() => {
+    dispatch(fetchCommentArticleById(id));
+  });
+  const onSendComment = useCallback((text) => {
+    dispatch(sendCommentForArticle(text));
+  }, [dispatch]);
 
-	if (!id){
-		return (
-			<div>
-				{t('article_not_found')}
-			</div>
-		);
-	}
+  if (!id){
+    return (
+      <div>
+        {t('article_not_found')}
+      </div>
+    );
+  }
 
 
-	return (
-		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-			<div className={classNames(cls.ArticleDetailsPage, {}, [className])} >
-				<ArticleDetails id={id} />
-				<UTText className={cls.commentTitle} title={t('comments')} />
-				<AddCommentForm onSendComment={onSendComment}/>
-				<CommentList isLoading={commentIsLoading} className={cls.commentList} comments={comments} />
-			</div>
-		</DynamicModuleLoader>
-	);
+  return (
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+      <div className={classNames(cls.ArticleDetailsPage, {}, [className])} >
+        <ArticleDetails id={id} />
+        <UTText className={cls.commentTitle} title={t('comments')} />
+        <AddCommentForm onSendComment={onSendComment}/>
+        <CommentList isLoading={commentIsLoading} className={cls.commentList} comments={comments} />
+      </div>
+    </DynamicModuleLoader>
+  );
 };
 
 export default memo(ArticleDetailsPage);

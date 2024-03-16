@@ -8,7 +8,7 @@ interface IconProps {
 }
 export const Icon: FC<IconProps> = ({ className, Svg }) => {
 
-	return (
-		<Svg className={classNames(cls.Icon, {}, [className])} />
-	);
+  return (
+    <Svg className={classNames(cls.Icon, {}, [className])} />
+  );
 };

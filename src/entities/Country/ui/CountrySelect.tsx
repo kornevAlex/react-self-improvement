@@ -11,21 +11,21 @@ interface CountrySelectProps {
 }
 
 export const CountrySelect: FC<CountrySelectProps> = memo(({ value, readonly, onChange }: CountrySelectProps) => {
-	const { t } = useTranslation();
+  const { t } = useTranslation();
 
-	const onChangeHandler = useCallback((event) => {
-		onChange?.(event.target.value);
-	}, [onChange]);
+  const onChangeHandler = useCallback((event) => {
+    onChange?.(event.target.value);
+  }, [onChange]);
 
-	const countryOptions = useMemo(() => Object.entries(Country).map((val) => ({ value: val[0], content: val[1] })), []);
-	return (
-		<UTSelect
-			label={t('choose_country_type')}
-			options={countryOptions}
-			readonly={readonly}
-			value={value}
-			onChange={onChangeHandler}>
+  const countryOptions = useMemo(() => Object.entries(Country).map((val) => ({ value: val[0], content: val[1] })), []);
+  return (
+    <UTSelect
+      label={t('choose_country_type')}
+      options={countryOptions}
+      readonly={readonly}
+      value={value}
+      onChange={onChangeHandler}>
             
-		</UTSelect>
-	);
+    </UTSelect>
+  );
 });

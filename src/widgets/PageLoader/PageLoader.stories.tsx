@@ -4,8 +4,8 @@ import { ThemeDecorator, RouterDecorator } from 'shared/config/storybook';
 import { PageLoader } from './PageLoader';
 
 export default {
-	title: 'widget/PageLoader',
-	component: PageLoader,
+  title: 'widget/PageLoader',
+  component: PageLoader,
 } as ComponentMeta<typeof PageLoader>;
 
 const Template: ComponentStory<typeof PageLoader> = (args) => <PageLoader {...args} />;

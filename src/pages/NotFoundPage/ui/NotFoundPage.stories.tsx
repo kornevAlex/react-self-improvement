@@ -4,8 +4,8 @@ import { ThemeDecorator, RouterDecorator } from 'shared/config/storybook';
 import { NotFoundPage } from './NotFoundPage';
 
 export default {
-	title: 'pages/NotFoundPage',
-	component: NotFoundPage,
+  title: 'pages/NotFoundPage',
+  component: NotFoundPage,
 } as ComponentMeta<typeof NotFoundPage>;
 
 const Template: ComponentStory<typeof NotFoundPage> = (args) => <NotFoundPage {...args} />;

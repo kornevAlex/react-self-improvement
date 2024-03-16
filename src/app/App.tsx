@@ -7,24 +7,24 @@ import { getUserInited, userActions } from 'entities/User';
 import { useSelector } from 'react-redux';
 
 const App = () => {
-	const inited = useSelector(getUserInited);
-	const actions = useActionCreators(userActions);
+  const inited = useSelector(getUserInited);
+  const actions = useActionCreators(userActions);
 
-	useEffect(() => {
-		actions.initAuthData();
-	}, [actions]);
+  useEffect(() => {
+    actions.initAuthData();
+  }, [actions]);
 
-	return (
-		<div className={classNames('app', {}, [])}>
-			<Suspense fallback="">
-				<Navbar />
-				<div className="content-page">
-					<Sidebar />
-					{inited && <AppRouter />}
-				</div>
-			</Suspense>
-		</div>
-	);
+  return (
+    <div className={classNames('app', {}, [])}>
+      <Suspense fallback="">
+        <Navbar />
+        <div className="content-page">
+          <Sidebar />
+          {inited && <AppRouter />}
+        </div>
+      </Suspense>
+    </div>
+  );
 };
 
 export default App;

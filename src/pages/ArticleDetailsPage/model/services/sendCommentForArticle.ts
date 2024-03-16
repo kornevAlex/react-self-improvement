@@ -6,34 +6,34 @@ import { CommentType } from 'entities/Comment';
 import { articleDetailsCommentActions } from '../slice/ArticleDetailsCommentSlice';
 
 export const sendCommentForArticle = createAsyncThunk<CommentType, string, ThunkConfig<string>>(
-	'article/sendCommentForArticle',
-	async (text, thunkApi) => {
-		const { rejectWithValue, extra, getState, dispatch,  } = thunkApi;
+  'article/sendCommentForArticle',
+  async (text, thunkApi) => {
+    const { rejectWithValue, extra, getState, dispatch,  } = thunkApi;
         
-		try {
+    try {
 			
-			const userData = getUserAuthData(getState()); 
-			const article = getArticleDetailsData(getState());
+      const userData = getUserAuthData(getState()); 
+      const article = getArticleDetailsData(getState());
 			
-			if (!userData?.id || !article?.id || !text) return rejectWithValue('Нет переданы необходимые данные');
+      if (!userData?.id || !article?.id || !text) return rejectWithValue('Нет переданы необходимые данные');
 
-			const resp = await extra.api.post<CommentType>('/add_comment', {
-				articleId: article.id,
-				userId: userData.id,
-				text,
+      const resp = await extra.api.post<CommentType>('/add_comment', {
+        articleId: article.id,
+        userId: userData.id,
+        text,
 				
-			});
+      });
 			
-			if (!resp.data){
-				throw new Error('Comment hasnt been added');
-			}		
+      if (!resp.data){
+        throw new Error('Comment hasnt been added');
+      }		
 
-            dispatch(articleDetailsCommentActions.addComment(resp.data));
+      dispatch(articleDetailsCommentActions.addComment(resp.data));
 
-			return resp.data;
-		} catch (error){
-			const err = error as Error;
-			return rejectWithValue(err.message);
-		}
-	}
+      return resp.data;
+    } catch (error){
+      const err = error as Error;
+      return rejectWithValue(err.message);
+    }
+  }
 );

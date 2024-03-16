@@ -4,8 +4,8 @@ import { ThemeDecorator } from 'shared/config/storybook';
 import { Loader } from './Loader';
 
 export default {
-	title: 'shared/Loader',
-	component: Loader,
+  title: 'shared/Loader',
+  component: Loader,
 } as ComponentMeta<typeof Loader>;
 
 const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />;

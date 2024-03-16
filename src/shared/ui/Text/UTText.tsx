@@ -28,25 +28,25 @@ interface UTTextProps {
 	size?: TextSize;
 }
 export const UTText = memo((props: UTTextProps) => {
-	const { 
-		className,
-		title,
-		text,
-		theme = TextTheme.PRIMARY,
-		align = TextAlign.LEFT,
-		size = TextSize.M,
-	} = props;
+  const { 
+    className,
+    title,
+    text,
+    theme = TextTheme.PRIMARY,
+    align = TextAlign.LEFT,
+    size = TextSize.M,
+  } = props;
 
-	const mods: Mods = {
-		[cls[theme]]: true,
-		[cls[align]]: true,
-		[cls[size]]: true,
-	};
+  const mods: Mods = {
+    [cls[theme]]: true,
+    [cls[align]]: true,
+    [cls[size]]: true,
+  };
 	
-	return (
-		<div className={classNames(cls.UTText, mods, [className])} >
-			{title && <p className={cls.title}>{title}</p>}
-			{text && <p className={cls.text}>{text}</p>}
-		</div>
-	);
+  return (
+    <div className={classNames(cls.UTText, mods, [className])} >
+      {title && <p className={cls.title}>{title}</p>}
+      {text && <p className={cls.text}>{text}</p>}
+    </div>
+  );
 });

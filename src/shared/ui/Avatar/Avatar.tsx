@@ -9,19 +9,19 @@ interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
 
 export const Avatar: FC<AvatarProps> = memo(({ src, className, alt, size }: AvatarProps) => {
 
-	const styles = useMemo<CSSProperties>(() => {
-		return{
-			width: size || 100,
-			height: size || 100,
-		};
-	}, [size]);
+  const styles = useMemo<CSSProperties>(() => {
+    return{
+      width: size || 100,
+      height: size || 100,
+    };
+  }, [size]);
 
-	return (
-		<img 
-			className={classNames(cls.Avatar, {}, [className])}  
-			src={src} 
-			style={styles}
-			alt={alt}
-		/> 
-	);
+  return (
+    <img 
+      className={classNames(cls.Avatar, {}, [className])}  
+      src={src} 
+      style={styles}
+      alt={alt}
+    /> 
+  );
 });

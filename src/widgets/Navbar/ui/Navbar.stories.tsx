@@ -4,8 +4,8 @@ import { ThemeDecorator, RouterDecorator, StoreDecorator } from 'shared/config/s
 import { Navbar } from './Navbar';
 
 export default {
-	title: 'widget/Navbar',
-	component: Navbar,
+  title: 'widget/Navbar',
+  component: Navbar,
 } as ComponentMeta<typeof Navbar>;
 
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
@@ -22,10 +22,10 @@ LightNavbar.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({}), Route
 
 export const AuthNavbar = Template.bind({});
 AuthNavbar.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
-	user: {
-		authData: {
-			username: 'My Name',
-			id: '5',
-		}
-	}
+  user: {
+    authData: {
+      username: 'My Name',
+      id: '5',
+    }
+  }
 }), RouterDecorator];

@@ -4,10 +4,10 @@ import { Code } from './Code';
 import { ThemeDecorator } from 'shared/config/storybook';
 import { Theme } from 'app/providers/ThemeProvider';
 export default {
-	title: 'shared/Code',
-	component: Code,
-	args: {
-		children: `
+  title: 'shared/Code',
+  component: Code,
+  args: {
+    children: `
         import { ComponentStory, ComponentMeta } from '@storybook/react';
         import { Code } from './Code';
         import { ThemeDecorator } from 'shared/config/storybook';
@@ -24,7 +24,7 @@ export default {
         
         export const TextWithTitle = Template.bind({});
         TextWithTitle.args = {};`,
-	}
+  }
 } as ComponentMeta<typeof Code>;
 
 const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;

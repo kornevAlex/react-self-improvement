@@ -7,15 +7,15 @@ import { SkeletonProps } from '../Skeleton';
 
 export const AvatarSkeleton: FC<SkeletonProps> = ({ height, width, borderRadius, size, className }) => {
 
-	const styles: CSSProperties = {
-		borderRadius: borderRadius || '50%',
-		height: size || height,
-		width: size || width,
-	};
+  const styles: CSSProperties = {
+    borderRadius: borderRadius || '50%',
+    height: size || height,
+    width: size || width,
+  };
   
-	return (
-		<div style={styles} className={classNames(cls.Avatar, {}, [parentCls.Skeleton, className])}>
-			<Avatar />
-		</div>
-	);
+  return (
+    <div style={styles} className={classNames(cls.Avatar, {}, [parentCls.Skeleton, className])}>
+      <Avatar />
+    </div>
+  );
 };

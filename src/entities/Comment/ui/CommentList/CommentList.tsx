@@ -13,17 +13,17 @@ export const CommentList: FC<CommentListProps> = ({ className, comments, isLoadi
   if (isLoading){
     return (
       <div className={classNames(cls.CommentList, {}, [className])} >
-         <CommentCard isLoading />
-         <CommentCard isLoading />
-         <CommentCard isLoading />
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+        <CommentCard isLoading />
       </div>
     );
   }
- return (
-   <div className={classNames(cls.CommentList, {}, [className])} >
-     {comments.map((comment) => (
-      <CommentCard key={comment.id} comment={comment} isLoading={isLoading} />
-     ))}
-   </div>
- );
+  return (
+    <div className={classNames(cls.CommentList, {}, [className])} >
+      {comments.map((comment) => (
+        <CommentCard key={comment.id} comment={comment} isLoading={isLoading} />
+      ))}
+    </div>
+  );
 };

@@ -26,20 +26,20 @@ const articleDetailsCommentSlice = createSlice({
   },
   extraReducers (builder){
     builder
-    .addCase(fetchCommentArticleById.pending, (state) => {
-      state.error = undefined;
-      state.isLoading = true;
-    })
-    .addCase(fetchCommentArticleById.fulfilled, (state, { payload }: PayloadAction<CommentType[]>) => {
-      state.isLoading = false;
+      .addCase(fetchCommentArticleById.pending, (state) => {
+        state.error = undefined;
+        state.isLoading = true;
+      })
+      .addCase(fetchCommentArticleById.fulfilled, (state, { payload }: PayloadAction<CommentType[]>) => {
+        state.isLoading = false;
 
-      commentAdapter.setAll(state, payload);
-    })
-    .addCase(fetchCommentArticleById.rejected, (state, { payload }) => {
-      state.isLoading = false;
+        commentAdapter.setAll(state, payload);
+      })
+      .addCase(fetchCommentArticleById.rejected, (state, { payload }) => {
+        state.isLoading = false;
       
-      state.error = payload;
-    });
+        state.error = payload;
+      });
   }
 });
 

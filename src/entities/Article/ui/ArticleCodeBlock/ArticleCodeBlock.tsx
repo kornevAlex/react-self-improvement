@@ -10,11 +10,11 @@ interface ArticleCodeBlockProps {
 }
 export const ArticleCodeBlock: FC<ArticleCodeBlockProps> = ({ className, block }) => {
 
-	return (
-		<div className={classNames(cls.ArticleCodeBlock, {}, [className])}>
-			<Code>
-				{block.code}
-			</Code>
-		</div>
-	);
+  return (
+    <div className={classNames(cls.ArticleCodeBlock, {}, [className])}>
+      <Code>
+        {block.code}
+      </Code>
+    </div>
+  );
 };

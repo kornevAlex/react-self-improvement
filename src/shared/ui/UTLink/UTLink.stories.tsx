@@ -4,11 +4,11 @@ import { ThemeDecorator, RouterDecorator } from 'shared/config/storybook';
 import { UTLink } from './UTLink';
 
 export default {
-	title: 'shared/UTLink',
-	args: {
-		children: 'test',
-	},
-	component: UTLink,
+  title: 'shared/UTLink',
+  args: {
+    children: 'test',
+  },
+  component: UTLink,
 } as ComponentMeta<typeof UTLink>;
 
 const Template: ComponentStory<typeof UTLink> = (args) => <UTLink {...args} />;

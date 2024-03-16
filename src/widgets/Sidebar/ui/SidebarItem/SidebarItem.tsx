@@ -10,15 +10,15 @@ interface SidebarItemProps extends SidebarItemInterface {
 
 export const SidebarItem= memo(({ Icon, path, textKey, collapsed }: SidebarItemProps) => {
     
-	return (
-		<UTLink
-			to={path}
-			className={classNames(cls.link, { [cls.collapsed]: collapsed }) }
-		>
-			{Icon && <Icon className={cls.icon}/>}
-			<span className={cls.linkTitle}>
-				{textKey}
-			</span>
-		</UTLink>
-	);
+  return (
+    <UTLink
+      to={path}
+      className={classNames(cls.link, { [cls.collapsed]: collapsed }) }
+    >
+      {Icon && <Icon className={cls.icon}/>}
+      <span className={cls.linkTitle}>
+        {textKey}
+      </span>
+    </UTLink>
+  );
 });

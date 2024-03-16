@@ -14,20 +14,20 @@ interface UTLinkProps extends LinkProps{
 }
 
 export const UTLink = memo((props: UTLinkProps) => {
-	const {
-		to,
-		children,
-		className,
-		theme = UTLinkTheme.PRIMARY,
-		...otherCategory
-	} = props;
-	return (
-		<Link
-			{...otherCategory}
-			to={to}
-			className={classNames(cls.UTLink, {}, [className, cls[theme]])}
-		>
-			{children}
-		</Link>
-	);
+  const {
+    to,
+    children,
+    className,
+    theme = UTLinkTheme.PRIMARY,
+    ...otherCategory
+  } = props;
+  return (
+    <Link
+      {...otherCategory}
+      to={to}
+      className={classNames(cls.UTLink, {}, [className, cls[theme]])}
+    >
+      {children}
+    </Link>
+  );
 });

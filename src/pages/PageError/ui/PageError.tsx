@@ -9,18 +9,18 @@ interface PageErrorProps {
 	error: Error | null;
 }
 export const PageError = memo(({ className }: PageErrorProps) => {
-	const { t } = useTranslation();
+  const { t } = useTranslation();
 
-	const reload = () => {
-		location.reload();
-	};
+  const reload = () => {
+    location.reload();
+  };
 
-	return (
-		<div className={classNames(cls.PageError, {}, [className])}>
-			{t('something_wrong')}
-			<UTButton onClick={reload}>
-				{t('reload')}
-			</UTButton>
-		</div>
-	);
+  return (
+    <div className={classNames(cls.PageError, {}, [className])}>
+      {t('something_wrong')}
+      <UTButton onClick={reload}>
+        {t('reload')}
+      </UTButton>
+    </div>
+  );
 });

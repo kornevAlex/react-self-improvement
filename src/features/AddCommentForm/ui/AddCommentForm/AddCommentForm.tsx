@@ -28,8 +28,8 @@ const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) 
   }, [setText]);
 
   const onSendCommentHandler = useCallback(() => {
-      onChangeCommentValue('');
-      onSendComment(text);
+    onChangeCommentValue('');
+    onSendComment(text);
   }, [onChangeCommentValue, onSendComment, text]);
 
   return (

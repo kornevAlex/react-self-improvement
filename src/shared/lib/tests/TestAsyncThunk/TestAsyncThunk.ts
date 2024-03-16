@@ -7,32 +7,32 @@ type ActionCreatorType<Return, Arg, RejectedValue> = (arg: Arg) => AsyncThunkAct
 const mockedAxios = jest.mocked(axios);
 
 export class TestAsyncThunk<Return, Arg, Config>{
-	getState: () => StateSchema;
-	dispatch: Dispatch;
-	thunkActionCreator: ActionCreatorType<Return, Arg, Config>;
-	navigate: jest.MockedFn<any>;
-	api: jest.MockedFunctionDeep<AxiosStatic>;
+  getState: () => StateSchema;
+  dispatch: Dispatch;
+  thunkActionCreator: ActionCreatorType<Return, Arg, Config>;
+  navigate: jest.MockedFn<any>;
+  api: jest.MockedFunctionDeep<AxiosStatic>;
 
-	constructor (
-		thunkActionCreator: ActionCreatorType<Return, Arg, Config>,
-		state?: DeepPartial<StateSchema>
-	){
-		this.thunkActionCreator = thunkActionCreator;
-		this.dispatch = jest.fn();
-		this.getState = jest.fn(() => state as StateSchema);
-		this.api = mockedAxios;
-		this.navigate = jest.fn();
-	}
+  constructor (
+    thunkActionCreator: ActionCreatorType<Return, Arg, Config>,
+    state?: DeepPartial<StateSchema>
+  ){
+    this.thunkActionCreator = thunkActionCreator;
+    this.dispatch = jest.fn();
+    this.getState = jest.fn(() => state as StateSchema);
+    this.api = mockedAxios;
+    this.navigate = jest.fn();
+  }
 
 
-	async callThunk (arg: Arg){
-		const actionCreator = this.thunkActionCreator(arg);
-		const result = await actionCreator(this.dispatch, this.getState, 
-			{
-				api: this.api,
-				navigate: this.navigate
-			}	
-		);
-		return result;
-	}
+  async callThunk (arg: Arg){
+    const actionCreator = this.thunkActionCreator(arg);
+    const result = await actionCreator(this.dispatch, this.getState, 
+      {
+        api: this.api,
+        navigate: this.navigate
+      }	
+    );
+    return result;
+  }
 }

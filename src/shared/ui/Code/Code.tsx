@@ -11,20 +11,20 @@ interface CodeProps {
 }
 export const Code: FC<CodeProps> = ({ className, children }) => {
 
-	const onCopy = useCallback(() => {
-		navigator.clipboard.writeText(children).then(() => {
-			// Succesful
-		});
-	}, [children]);
+  const onCopy = useCallback(() => {
+    navigator.clipboard.writeText(children).then(() => {
+      // Succesful
+    });
+  }, [children]);
 
-	return (
-		<pre className={classNames(cls.code, {}, [className])}>
-			<UTButton onClick={onCopy} className={cls.copyButton} theme={ButtonTheme.CLEAR}>
-				<Icon Svg={Copy} className={cls.copyIcon} />
-			</UTButton>
-			<code>
-				{children}
-			</code>
-		</pre>
-	);
+  return (
+    <pre className={classNames(cls.code, {}, [className])}>
+      <UTButton onClick={onCopy} className={cls.copyButton} theme={ButtonTheme.CLEAR}>
+        <Icon Svg={Copy} className={cls.copyIcon} />
+      </UTButton>
+      <code>
+        {children}
+      </code>
+    </pre>
+  );
 };

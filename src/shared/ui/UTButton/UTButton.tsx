@@ -26,28 +26,28 @@ interface UTButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	size?: ButtonSize
 }
 export const UTButton = memo((props: UTButtonProps) => {
-	const {
-		children,
-		className,
-		theme = ButtonTheme.OUTLINE,
-		square,
-		disabled,
-		size = ButtonSize.M,
-		...otherProps
-	} = props;
+  const {
+    children,
+    className,
+    theme = ButtonTheme.OUTLINE,
+    square,
+    disabled,
+    size = ButtonSize.M,
+    ...otherProps
+  } = props;
 
-	const mods: Mods = {
-		[cls.square]: square,
-		[cls.disabled]: disabled,
-	};
+  const mods: Mods = {
+    [cls.square]: square,
+    [cls.disabled]: disabled,
+  };
 
-	return (
-		<button
-			className={classNames(cls.UTButton, mods, [className, cls[theme], cls[size]])}
-			disabled={disabled}
-			{...otherProps}
-		>
-			{children}
-		</button>
-	);
+  return (
+    <button
+      className={classNames(cls.UTButton, mods, [className, cls[theme], cls[size]])}
+      disabled={disabled}
+      {...otherProps}
+    >
+      {children}
+    </button>
+  );
 });
