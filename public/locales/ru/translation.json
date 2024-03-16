@@ -12,5 +12,7 @@
   "password": "Введите пароль",
   "authorisation_form": "Форма авторизации",
   "sign_out": "Выйти",
-  "profile": "Профиль"
+  "profile": "Профиль",
+  "send_comment": "Отправить комментарий",
+  "input_comment": "Введите комментарий"
 }

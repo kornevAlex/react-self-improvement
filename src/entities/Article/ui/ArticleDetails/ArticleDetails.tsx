@@ -10,8 +10,8 @@ import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import { getArticleDetailsLoading, getArticleDetailsData, getArticleDetailsError } from '../../model/selectors/getArticleDetails';
 import { requestArticleById } from '../../model/services/requestArticleById';
 import { TextSize, TextTheme, UTText } from 'shared/ui/Text/UTText';
-import { useApppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { DynamicModuleLoader, ReducersList, useActionCreators } from 'shared/lib';
 import { Icon, Avatar, Skeleton } from 'shared/ui';
 import EyeIcon from 'shared/img/eye-icos.svg';
 import CalendarIcon from 'shared/img/calendar-icon.svg';
@@ -28,8 +28,7 @@ const reducers: ReducersList = {
 
 export const ArticleDetails: FC<ArticleDetailsProps> = ({ id }) => {
 	const { t } = useTranslation();
-	const dispatch = useApppDispatch();
-
+	const dispatch = useAppDispatch();
 	const isLoading = useSelector(getArticleDetailsLoading);
 	const error = useSelector(getArticleDetailsError);
 	const article = useSelector(getArticleDetailsData);

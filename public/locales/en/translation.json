@@ -12,5 +12,7 @@
   "sign_in": "Sign in",
   "authorisation_form": "Authorisation form",
   "sign_out": "Logout",
-  "password": "Input password"
+  "password": "Input password",
+  "send_comment": "Send comment",
+  "input_comment": "Enter comment"
 }

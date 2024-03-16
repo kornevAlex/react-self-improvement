@@ -33,7 +33,6 @@ server.post('/login', (req, res) => {
 		if (userFromBd){
 			return res.json(userFromBd);
 		}
-
 		return res.status(403).json({ message: 'User not found' });
 	} catch (e){
 		console.log(e);
@@ -42,17 +41,30 @@ server.post('/login', (req, res) => {
 });
 
 // Эндпоинт для логина
-server.post('/comments', (req, res) => {
+server.post('/add_comment', (req, res) => {
 	try {
-		const { text, userId, articleId } = req.body;
+		const { userId, articleId, text } = req.body;
 		const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
-		const { comments = [] } = db;
+		const { users = [], comments = [] } = db;
 
-		comments.push({
-			id: comments.length + 1,
+		
+		const userFromBd = users.find(
+			(user) => user.id === userId,
+		);
+		const comment = {
 			articleId,
-			userId,
 			text,
+			id: ++comments.length, 
+		};
+		
+		router.db.get('comments').push({
+			userId,
+			...comment,
+		}).write();
+
+		return res.json({
+			...comment,
+			user: userFromBd,
 		});
 
 	} catch (e){
@@ -60,7 +72,6 @@ server.post('/comments', (req, res) => {
 		return res.status(500).json({ message: e.message });
 	}
 });
-
 
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line

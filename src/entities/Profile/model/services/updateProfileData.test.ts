@@ -12,7 +12,8 @@ const mockUserData = {
 	country: Country.Russia,
 	currency: Currency.EUR,
 	firstname: 'test',
-	lastname: 'test'
+	lastname: 'test',
+	id: '1',
 };
 describe('updateProfileData.test', () => {
 	

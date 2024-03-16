@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -90,17 +92,49 @@
       "articleId": "1",
       "userId": "1"
     },
+    null,
     {
-      "id": "2",
-      "text": "some comment 2",
+      "userId": "1",
       "articleId": "1",
-      "userId": "1"
+      "text": "Второй коммент",
+      "id": 2
+    },
+    null,
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "третий коммент",
+      "id": 4
     },
     {
-      "id": "3",
-      "text": "some comment 3",
+      "userId": "1",
       "articleId": "1",
-      "userId": "1"
+      "text": "test addded",
+      "id": 6
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "awdawdawd",
+      "id": 7
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "dwadawd",
+      "id": 8
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "awdawd",
+      "id": 9
+    },
+    {
+      "userId": "2",
+      "articleId": "1",
+      "text": "comments",
+      "id": 10
     }
   ],
   "users": [
@@ -119,14 +153,28 @@
       "avatar": "https://avatars.mds.yandex.net/get-entity_search/5499684/551843440/S122x122Fit_2x"
     }
   ],
-  "profile": {
-    "first": "jgh",
-    "lastname": "asf",
-    "age": 465,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Moscow",
-    "username": "admin213",
-    "avatar": "https://avatars.mds.yandex.net/get-entity_search/5499684/551843440/S122x122Fit_2x"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "jgh",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://avatars.mds.yandex.net/get-entity_search/5499684/551843440/S122x122Fit_2x"
+    },
+    {
+      "id": "2",
+      "firstname": "alex",
+      "lastname": "korny",
+      "age": 24,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "alexkorny",
+      "avatar": "https://avatars.mds.yandex.net/get-entity_search/5499684/551843440/S122x122Fit_2x"
+    }
+  ]
 }

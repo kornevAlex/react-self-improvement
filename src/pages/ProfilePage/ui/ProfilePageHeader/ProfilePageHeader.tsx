@@ -6,34 +6,42 @@ import { UTText } from 'shared/ui/Text/UTText';
 import { UTButton } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/UTButton/UTButton';
 import { useSelector } from 'react-redux';
-import { getProfileReadonly, profileActions } from 'entities/Profile';
-import { useApppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { getProfileData, getProfileReadonly, profileActions } from 'entities/Profile';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { updateProfileData } from 'entities/Profile/model/services/updateProfileData';
+import { getUserAuthData } from 'entities/User';
+import { useActionCreators } from 'shared/lib';
 
 interface ProfilePageHeaderProps {
     className?: string;
 }
 export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
 	const { t } = useTranslation('profile');
-	const dispatch = useApppDispatch();
+	const dispatch = useAppDispatch();
+	const profileData = useSelector(getProfileData);
+	const authData = useSelector(getUserAuthData);
+	const { setReadonly, cancelEdit } = useActionCreators(profileActions);
 
+	const isOwner = profileData?.id === authData?.id;
+	console.log(profileData?.id, authData?.id);
+	
 	const readonly = useSelector(getProfileReadonly);
 	const onEdit = useCallback(() => {
-		dispatch(profileActions.setReadonly(!readonly));
-	}, [dispatch, readonly]);
+		setReadonly(!readonly);
+	}, [readonly, setReadonly]);
 
 	const onSave = useCallback(() => {
 		dispatch(updateProfileData());
 	}, [dispatch]);
 
 	const onCancel = useCallback(() => {
-		dispatch(profileActions.cancelEdit());
-	}, [dispatch]);
+		cancelEdit();
+	}, [cancelEdit]);
 
 	return (
 		<div className={classNames(cls.ProfilePageHeader, {}, [className])} >
 			<UTText title={t('profile')}/>
-			{readonly ? (
+			{isOwner && (readonly ? (
 				<UTButton className={cls.editBtn} theme={ButtonTheme.OUTLINE} onClick={onEdit}>
 					{t('update')}
 				</UTButton>
@@ -46,7 +54,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => 
 						{t('cancel')}
 					</UTButton>
 				</div>
-			)
+			))
 			}
 		</div>
 	);

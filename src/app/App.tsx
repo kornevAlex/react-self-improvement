@@ -1,18 +1,18 @@
-import { classNames } from 'shared/lib';
+import { classNames, useActionCreators } from 'shared/lib';
 import { AppRouter } from './providers/router';
 import 'shared/config/i18n/i18n';
 import { Suspense, useEffect } from 'react';
 import { Navbar, Sidebar } from 'widgets';
 import { getUserInited, userActions } from 'entities/User';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const App = () => {
-	const dispatch = useDispatch();
 	const inited = useSelector(getUserInited);
+	const actions = useActionCreators(userActions);
 
 	useEffect(() => {
-		dispatch(userActions.initAuthData());
-	}, [dispatch]);
+		actions.initAuthData();
+	}, [actions]);
 
 	return (
 		<div className={classNames('app', {}, [])}>

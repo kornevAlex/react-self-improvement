@@ -1,20 +1,23 @@
 import { memo, useCallback } from 'react';
-import { DynamicModuleLoader } from 'shared/lib';
+import { DynamicModuleLoader, useActionCreators } from 'shared/lib';
 import { ProfileCard, requestProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, profileActions, profileReducer, getProfileValidateError } from 'entities/Profile';
 import { ReducersList } from 'shared/lib';
-import { useApppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { TextTheme, UTText } from 'shared/ui/Text/UTText';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useParams } from 'react-router-dom';
 
 const reducers: ReducersList= {
 	profile: profileReducer
 };
 const ProfilePage = memo(() => {
-	const dispatch = useApppDispatch();
+	const { id } = useParams();
+	const dispatch = useAppDispatch();
+	const { setProfileData } = useActionCreators(profileActions);
 	const formData = useSelector(getProfileForm);
 	const isLoading = useSelector(getProfileIsLoading);
 	const error = useSelector(getProfileError);
@@ -22,40 +25,41 @@ const ProfilePage = memo(() => {
 	const validateErrors = useSelector(getProfileValidateError);
 
 	useInitialEffect(() => {
-		dispatch(requestProfileData());
+		if (!id) return;
+		dispatch(requestProfileData(id));
 	});
 
 	const onChangeFirstname = useCallback((value?: string) => {
-		dispatch(profileActions.setProfileData({ firstname: value || '' }));
-	}, [dispatch]);
+		setProfileData({ firstname: value || '' });
+	}, [setProfileData]);
 
 	const onChangeLastname = useCallback((value?: string) => {
-		dispatch(profileActions.setProfileData({ lastname: value || '' }));
-	}, [dispatch]);
+		setProfileData({ lastname: value || '' });
+	}, [setProfileData]);
 
 	const onChangeAge = useCallback((value?: string) => {
-		dispatch(profileActions.setProfileData({ age: Number(value || 0) }));
-	}, [dispatch]);
+		setProfileData({ age: Number(value || 0) });
+	}, [setProfileData]);
 
 	const onChangeCity = useCallback((value?: string) => {
-		dispatch(profileActions.setProfileData({ city: value || '' }));
-	}, [dispatch]);
+		setProfileData({ city: value || '' });
+	}, [setProfileData]);
 
 	const onChangeAvatar = useCallback((value?: string) => {
-		dispatch(profileActions.setProfileData({ avatar: value || '' }));
-	}, [dispatch]);
+		setProfileData({ avatar: value || '' });
+	}, [setProfileData]);
 
 	const onChangeUsername = useCallback((value?: string) => {
-		dispatch(profileActions.setProfileData({ username: value || '' }));
-	}, [dispatch]);
+		setProfileData({ username: value || '' });
+	}, [setProfileData]);
 
 	const onChangeCurrency = useCallback((currency?: Currency) => {
-		dispatch(profileActions.setProfileData({ currency }));
-	}, [dispatch]);
+		setProfileData({ currency });
+	}, [setProfileData]);
 	
 	const onChangeCountry = useCallback((country?: Country) => {
-		dispatch(profileActions.setProfileData({ country }));
-	}, [dispatch]);
+		setProfileData({ country });
+	}, [setProfileData]);
 	
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>

@@ -18,7 +18,7 @@ export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<Val
 		}
 
 		try {
-			const resp = await extra.api.put<Profile>('/profile', formData);
+			const resp = await extra.api.put<Profile>(`/profile/${formData?.id}`, formData);
     
 			if (!resp.data){
 				throw new Error('Data has not received');

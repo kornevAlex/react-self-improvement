@@ -4,9 +4,9 @@ import { CommentType } from 'entities/Comment';
 import { ArticleDetailsCommentSchema } from '../types/ArticleDetailsCommentSchema';
 import { fetchCommentArticleById } from '../services/fetchCommentArticleById';
   
-  const commentAdapter = createEntityAdapter<CommentType>({
-    selectId: (comment) => comment.id,
-  });
+export  const commentAdapter = createEntityAdapter<CommentType>({
+  selectId: (comment) => comment.id,
+});
   
 export const getArticleComments = commentAdapter.getSelectors<StateSchema>(
   state => state.articleDetailsComments || commentAdapter.getInitialState()
@@ -22,10 +22,7 @@ const articleDetailsCommentSlice = createSlice({
     },
   }),
   reducers: {
-    bookAdded: commentAdapter.addOne,
-    booksReceived (state, action){
-      commentAdapter.setAll(state, action.payload.books);
-    },
+    addComment: commentAdapter.addOne,
   },
   extraReducers (builder){
     builder
@@ -46,4 +43,4 @@ const articleDetailsCommentSlice = createSlice({
   }
 });
 
-export const { reducer: articleDetailsCommentReducer } = articleDetailsCommentSlice;
+export const { reducer: articleDetailsCommentReducer, actions: articleDetailsCommentActions } = articleDetailsCommentSlice;

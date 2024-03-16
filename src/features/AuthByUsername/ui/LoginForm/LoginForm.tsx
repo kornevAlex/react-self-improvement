@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import cls from './LoginForm.module.scss';
-import { ReducersList, classNames } from 'shared/lib';
+import { ReducersList, classNames, useActionCreators } from 'shared/lib';
 import { UTButton } from 'shared/ui';
 import { UTInput } from 'shared/ui/UTInput/UTInput';
 import { useSelector } from 'react-redux';
@@ -13,7 +13,7 @@ import { getAuthPassword } from '../../../AuthByUsername/model/selectors/getAuth
 import { getAuthError } from '../../../AuthByUsername/model/selectors/getAuthError/getAuthError';
 import { getAuthisLoading } from '../../../AuthByUsername/model/selectors/getAuthisLoading/getAuthisLoading';
 import { DynamicModuleLoader } from 'shared/lib';
-import { useApppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 interface LoginFormProps {
     className?: string;
@@ -21,7 +21,8 @@ interface LoginFormProps {
 }
 const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 	const { t } = useTranslation();
-	const dispatch = useApppDispatch();
+	const { setUsername, setPassword } = useActionCreators(authActions);
+	const dispatch = useAppDispatch();
 	const username = useSelector(getAuthUsername);
 	const password = useSelector(getAuthPassword);
 	const isLoading = useSelector(getAuthisLoading);
@@ -31,12 +32,12 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 	};
 
 	const onChangeLogin = useCallback((val) => {
-		dispatch(authActions.setUsername(val));
-	}, [dispatch]);
+		setUsername(val);
+	}, [setUsername]);
 	
 	const onChangePassword = useCallback((val) => {
-		dispatch(authActions.setPassword(val));
-	}, [dispatch]);
+		setPassword(val);
+	}, [setPassword]);
 
 	const onLoginClick = useCallback(async () => {
 		const { meta } = await dispatch(authByUsername({ username, password }));

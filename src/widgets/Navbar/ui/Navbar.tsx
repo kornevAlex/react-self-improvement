@@ -1,10 +1,10 @@
 import { useState, useCallback, memo } from 'react';
-import { classNames } from 'shared/lib';
+import { classNames, useActionCreators } from 'shared/lib';
 import cls from './Navbar.module.scss';
 import { useTranslation } from 'react-i18next';
 import { ButtonTheme, UTButton } from 'shared/ui/UTButton/UTButton';
 import { LoginModal } from 'features/AuthByUsername';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 
 interface NavbarProps {
@@ -13,7 +13,7 @@ interface NavbarProps {
 export const Navbar = memo(({ className }: NavbarProps) => {
 	const [isAuthModal, setIsAuthModal] = useState(false);
 	const authData = useSelector(getUserAuthData);
-	const dispatch = useDispatch();
+	const actions = useActionCreators(userActions);
 	
 	const  { t }= useTranslation();
 
@@ -26,8 +26,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 	}, []);
 
 	const onLogout = useCallback(() => {
-		dispatch(userActions.logout());
-	}, [dispatch]);
+		actions.logout();
+	}, [actions]);
 
 	if (authData){
 		return (
