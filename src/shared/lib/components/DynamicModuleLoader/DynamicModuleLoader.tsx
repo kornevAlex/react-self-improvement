@@ -30,8 +30,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({ children, re
         });
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch, reducers, removeAfterUnmount, store.reducerManager]);
   return (
     <>
       {children}

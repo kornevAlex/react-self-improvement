@@ -3,7 +3,7 @@ import { MainPage } from 'pages/MainPage';
 import { AboutPage } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
-import { ArticlePage } from 'pages/ArticlePage/ui';
+import { ArticlePage } from 'pages/ArticlePage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 
 export type AppRoutesProps = RouteProps & {
@@ -14,9 +14,9 @@ export enum AppRoutes {
     MAIN = 'main',
     ABOUT = 'about',
     PROFILE = 'profile',
-	ARTICLE = 'article',
-	ARTICLE_DETAILS = 'article_details',
-	NOT_FOUND = 'not_found',
+    ARTICLE = 'article',
+    ARTICLE_DETAILS = 'article_details',
+    NOT_FOUND = 'not_found',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {

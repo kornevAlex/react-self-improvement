@@ -1,7 +1,7 @@
 import { ButtonSize, ButtonTheme, UTButton } from 'shared/ui/UTButton/UTButton';
 import { LangSwitcher, ThemeSwitcher } from 'widgets';
 import { classNames } from 'shared/lib';
-import { memo, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { useTranslation } from 'react-i18next';
@@ -16,26 +16,30 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   const { t } = useTranslation();
   const sidebarItems = useSelector(getSidebarItems);
 
-  const onToggle = async () => {
+  const onToggle = useCallback(async () => {
     setCollapsed(prev => !prev);
-  };
+  },[]);
+
+  const renderSidebarItems = useMemo(() => {
+    return sidebarItems.map(({ Icon, path, textKey }) => {
+      return (
+        <SidebarItem
+          key={path}
+          Icon={Icon}
+          path={path} 
+          textKey={t(`${textKey}`)} 
+          collapsed={collapsed}
+        />
+      );
+    });
+  }, [collapsed, sidebarItems, t]);
   return (
     <div
       data-testid="sidebar"
       className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
     >
       <div className={cls.links}>
-        {sidebarItems.map(({ Icon, path, textKey }) => {
-          return (
-            <SidebarItem
-              key={path}
-              Icon={Icon}
-              path={path} 
-              textKey={t(`${textKey}`)} 
-              collapsed={collapsed}
-            />
-          );
-        })}
+        {renderSidebarItems}
       </div>
       <UTButton
         data-testid="sidebar-toggle"

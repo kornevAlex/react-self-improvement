@@ -11,7 +11,7 @@ import { getArticleDetailsLoading, getArticleDetailsData, getArticleDetailsError
 import { requestArticleById } from '../../model/services/requestArticleById';
 import { TextSize, TextTheme, UTText } from 'shared/ui/Text/UTText';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { DynamicModuleLoader, ReducersList, useActionCreators } from 'shared/lib';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib';
 import { Icon, Avatar, Skeleton } from 'shared/ui';
 import EyeIcon from 'shared/img/eye-icos.svg';
 import CalendarIcon from 'shared/img/calendar-icon.svg';

@@ -14,5 +14,6 @@
   "sign_out": "Logout",
   "password": "Input password",
   "send_comment": "Send comment",
-  "input_comment": "Enter comment"
+  "input_comment": "Enter comment",
+  "articles": "Articles"
 }

@@ -37,7 +37,8 @@ export const UTInput = memo((props: UTInputProps) => {
   const ref = useRef<HTMLInputElement| null>(null);
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (mod === InputMod.NUM && /\D/.test(e.target.value)) return;
-
+    console.log(e.target.value);
+    
     if (!readonly){
       onChange?.(e.target.value);
       setCaretPosition(e.target.value.length);

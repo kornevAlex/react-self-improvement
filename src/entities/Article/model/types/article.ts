@@ -1,14 +1,19 @@
 export enum ArticleType {
-    'IT'= 'IT',
-    'SCIENCE' = 'SCIENCE',
-    'ECONOMICS' = 'ECONOMICS',
+    IT= 'IT',
+    SCIENCE = 'SCIENCE',
+    ECONOMICS = 'ECONOMICS',
 }
 
 export enum ArticleBlockType {
     TEXT = 'TEXT',
     CODE = 'CODE',
     IMAGE = 'IMAGE',
-} 
+}
+
+export enum ArticleView {
+    TILE = 'TILE',
+    BLOCK = 'BLOCK',
+}
 
 export interface ArticleBaseBlock {
     id: string;

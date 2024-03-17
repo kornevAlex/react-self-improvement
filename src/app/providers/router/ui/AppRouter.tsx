@@ -5,6 +5,10 @@ import { PageLoader } from 'widgets';
 import { RequireAuth } from './RequireAuth';
 
 export const AppRouter = () => {
+  console.log('==============================');
+  console.log('arpprouter');
+  console.log('==============================');
+  
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {
     const element = (
       <Suspense fallback={<PageLoader />}>

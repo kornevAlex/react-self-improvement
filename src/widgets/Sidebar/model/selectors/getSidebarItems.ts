@@ -32,7 +32,7 @@ export const getSidebarItems = createSelector(
         },
         {
           path: RoutePath.article,
-          textKey: 'article',
+          textKey: 'articles',
           Icon: Article
         }
       );
