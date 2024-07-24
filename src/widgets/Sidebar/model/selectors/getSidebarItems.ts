@@ -1,7 +1,7 @@
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import Home from 'shared/img/home-outline.svg';
-import Info from 'shared/img/info-outline.svg';
-import Profile from 'shared/img/profile.svg';
+import Home from 'shared/img/home.svg';
+import Info from 'shared/img/info.svg';
+import Profile from 'shared/img/avatar.svg';
 import Article from 'shared/img/article.svg';
 import { SidebarItemInterface } from '../types/sidebar';
 import { createSelector } from '@reduxjs/toolkit';
@@ -22,7 +22,7 @@ export const getSidebarItems = createSelector(
         Icon: Info
       },
     ];
-        
+    
     if (userData){
       sidebarItems.push(
         {

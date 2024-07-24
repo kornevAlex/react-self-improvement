@@ -3,7 +3,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook';
 import { SidebarItem } from './SidebarItem';
 import { RouterDecorator } from 'shared/config/storybook/Decorators/RouterDecorator';
-import Profile from 'shared/img/profile.svg';
+import Profile from 'shared/img/avatar.svg';
 
 export default {
   title: 'widget/SidebarItem',

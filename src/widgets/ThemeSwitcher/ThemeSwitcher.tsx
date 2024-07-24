@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib';
 import ThemeDark from 'shared/img/theme-dark.svg';
 import ThemeLight from 'shared/img/theme-light.svg';
+import ThemeYellow from 'shared/img/theme-yellow.svg';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import { ButtonTheme, UTButton } from 'shared/ui/UTButton/UTButton';
 import cls from './ThemeSwitcher.module.scss';
@@ -20,7 +21,7 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
     >
       {theme === Theme.DARK && <ThemeDark />}
       {theme === Theme.LIGHT && <ThemeLight />}
-      {theme === Theme.GREEN && <ThemeLight />}
+      {theme === Theme.YELLOW && <ThemeYellow />}
     </UTButton>
   );
 });

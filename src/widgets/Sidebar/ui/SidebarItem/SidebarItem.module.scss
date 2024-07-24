@@ -1,15 +1,23 @@
+@use 'sass:color';
 .link {
 	display: flex;
 	align-items: center;
 	position: relative;
-	height: 80px;
+	padding-left: 10px;
+	height: 32px;
 	transition: .3s all;
-	fill: var(--inverted-primary-color);
+	text-decoration: none;
+	border-left: 2px solid transparent;
 
 	&:hover {
-		background: var(--bg-color);
-		color: var(--primary-color);
-		fill: var(--primary-color);
+		
+		background: var(--sidebar-hover);
+		color: var(--icon-color);
+		fill: var(--icon-color);
+		border-left: 2px solid var(--icon-color);
+	}
+	svg {
+		fill: var(--icon-color);
 	}
 }
 
@@ -20,15 +28,12 @@
 	white-space: nowrap;
 }
 
-.icon {
-	min-width: 80px;
-	min-height: 80px;
-	width: 80px;
-	height: 80px;
-}
-
 
 .collapsed {
+	&.link {
+		padding: 0 1px;
+	}
+
 	.linkTitle {
 		opacity: 0;
 		width: 0;

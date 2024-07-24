@@ -15,5 +15,6 @@
   "password": "Input password",
   "send_comment": "Send comment",
   "input_comment": "Enter comment",
-  "articles": "Articles"
+  "articles": "Articles",
+  "login": "Input login"
 }

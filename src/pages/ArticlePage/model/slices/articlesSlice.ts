@@ -20,8 +20,8 @@ export const articlesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(requestArticles.fulfilled, (state, { payload }: PayloadAction<Article[]>) => {
-        state.isLoading = false;
         state.data = payload;
+        state.isLoading = false;
       })
       .addCase(requestArticles.rejected, (state, { payload }) => {
         state.isLoading = false;

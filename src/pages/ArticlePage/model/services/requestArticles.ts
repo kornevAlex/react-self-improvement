@@ -9,7 +9,11 @@ export const requestArticles = createAsyncThunk<Article[], void, ThunkConfig<str
     const { rejectWithValue, extra } = thunkApi;
         
     try {
-      const resp = await extra.api.get<Article[]>('/articles');
+      const resp = await extra.api.get<Article[]>('/articles', {
+        params: {
+          _expand: 'user',
+        }
+      });
     
       if (!resp.data){
         throw new Error('Article has not received');

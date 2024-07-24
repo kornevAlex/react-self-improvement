@@ -1,6 +1,6 @@
 .code {
     position: relative;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--text-color);
     background-color: var(--code-bg);
     overflow: auto;
 }
@@ -13,5 +13,5 @@
 
 .copyIcon path{
     fill: transparent;
-    stroke: var(--primary-color);
+    stroke: var(--text-color);
 }

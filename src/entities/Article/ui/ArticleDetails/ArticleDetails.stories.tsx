@@ -94,9 +94,9 @@ Light.decorators = [
 ];
 
 
-export const Green = Template.bind({});
-Green.args = {};
-Green.decorators = [
+export const YELLOW = Template.bind({});
+YELLOW.args = {};
+YELLOW.decorators = [
   StoreDecorator({
     articleDetails: {
       data: article,
@@ -104,7 +104,7 @@ Green.decorators = [
     }
   }),
   RouterDecorator,
-  ThemeDecorator(Theme.GREEN),
+  ThemeDecorator(Theme.YELLOW),
 ];
 
 export const DARK = Template.bind({});

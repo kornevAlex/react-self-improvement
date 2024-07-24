@@ -13,8 +13,7 @@ import { TextSize, TextTheme, UTText } from 'shared/ui/Text/UTText';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib';
 import { Icon, Avatar, Skeleton } from 'shared/ui';
-import EyeIcon from 'shared/img/eye-icos.svg';
-import CalendarIcon from 'shared/img/calendar-icon.svg';
+import EyeIcon from 'shared/img/eye.svg';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 
 interface ArticleDetailsProps {
@@ -70,7 +69,6 @@ export const ArticleDetails: FC<ArticleDetailsProps> = ({ id }) => {
           <UTText text={String(article?.views)} />
         </div>
         <div className={cls.info}>
-          <Icon className={cls.articleIcon} Svg={CalendarIcon}/>
           <UTText text={article?.createdAt} />
         </div>
         {article?.blocks.map(renderBlock)}

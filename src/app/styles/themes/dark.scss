@@ -1,14 +1,35 @@
 .app_dark_theme {
-    --bg-color: #0a0a4d;
-    --inverted-bg-color: #dedee7;
-    --primary-color: #e6eee6;
+    --dark-side-of-the-moon: #090f11;
+    --ruined-smores: #0c1214;
+    --river-styx: #151c1f;
+    --pixel-white: #dbdbdb;
+    --stone-cold: #555555;
+    --bricks-of-hope: #d95757;
+    --spring-bouquet: #6cd98b;
+    --saga-blue: #74a2b2;
+    --skyan: #5ed3f3;
+
+
+    --dark-bg-color: var(--dark-side-of-the-moon);
+    --bg-color: var(--ruined-smores);
+    --light-bg-color: var(--river-styx);
+    --text-color: var(--pixel-white);
+    --hint-color: var(--stone-cold);
+    --cancel-color: var(--bricks-of-hope);
+    --save-color: var(--spring-bouquet);
+    --accent-color: var(--saga-blue);
+    --icon-color: var(--skyan);
+
     --secondary-color: rgb(4 163 12);
-    --inverted-primary-color:  rgb(4 163 12);
     --inverted-secondary-color:  #4729f3;
-    --skeleton-loading: linear-gradient(90deg, rgb(235 235 235) 25%, var(--inverted-bg-color) 37%, rgb(235 235 235) 63%);
+    --skeleton-loading: linear-gradient(90deg, rgb(235 235 235) 25%, var(--light-bg-color) 37%, rgb(235 235 235) 63%);
     --skeleton-content: var(--bg-color);
     --skeleton-shadow: rgb(0 0 0  20%);
 
     // Code
     --code-bg: var(--inverted-secondary-color);
+    // Sidebar
+
+    --sidebar-hover: linear-gradient(89.97deg, rgba(94, 211, 243, 0.3) 1.15%, rgba(94, 211, 243, 0) 99.97%);
+
 }

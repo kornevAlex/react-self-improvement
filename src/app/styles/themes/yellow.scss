@@ -1,0 +1,36 @@
+.app_yellow_theme {
+    --hazelwood: #fff3d6;
+    --adonis-rose-yellow: #f0c048;
+    --oat-straw: #f2d791;
+    --scandinavian-liquorice: #1b1311;
+    --silver-taupe: #b8b2a2;
+    --fusion-red: #ff5e5e;
+    --thallium-flame: #52fa81;
+    --blue-oyster-cult: #4875f0;
+    --y7k-blue: #1d59ff;
+
+    --dark-bg-color: var(--hazelwood);
+    --bg-color: var(--adonis-rose-yellow);
+    --light-bg-color: var(--oat-straw);
+    --text-color: var(--scandinavian-liquorice);
+    --hint-color: var(--silver-taupe);
+    --cancel-color: var(--fusion-red);
+    --save-color: var(--thallium-flame);
+    --accent-color: var(--blue-oyster-cult);
+    --icon-color: var(--y7k-blue);
+
+    --secondary-color: #F4FBF7;
+    --text-color: var(--text-color);
+    --inverted-secondary-color:  #0b0408;
+    --skeleton-loading: linear-gradient(90deg, var(--light-bg-color) 25%, var(--text-color) 35%, var( --light-bg-color) 63%);
+    --skeleton-content: var(--secondary-color);
+    --skeleton-shadow: rgba(0 0 0  20%);
+
+
+    // Sidebar 
+    --sidebar-hover: linear-gradient(89.97deg, rgba(29, 89, 255, 0.3) 1.15%, rgba(94, 211, 243, 0) 99.97%);
+    ; 
+
+    // Code
+    --code-bg: #fff;
+}

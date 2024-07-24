@@ -15,5 +15,6 @@
   "profile": "Профиль",
   "send_comment": "Отправить комментарий",
   "input_comment": "Введите комментарий",
-  "articles": "Статьи"
+  "articles": "Статьи",
+  "error": "Ошибка"
 }

@@ -1,11 +1,11 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticlePage.module.scss';
-import { FC, memo, useEffect } from 'react';
+import { FC, memo } from 'react';
 import { ArticleList } from 'entities/Article';
 import { ArticleView } from 'entities/Article/model/types/article';
 import { DynamicModuleLoader, ReducersList, useAppDispatch, useInitialEffect } from 'shared/lib';
 import { useSelector } from 'react-redux';
-import { Loader, UTText } from 'shared/ui';
+import { UTText } from 'shared/ui';
 import { articlesReducer } from '../../model/slices/articlesSlice';
 import { requestArticles } from '../../model/services/requestArticles';
 import { getArticlesError, getArticlesData, getArticlesLoading } from '../../model/selectors/getArticles';
@@ -28,12 +28,6 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
   useInitialEffect(() => {
     dispatch(requestArticles());
   });
-
-  if (isLoading){
-    return (
-      <Loader />
-    );
-  }
 
   if (error){
     return (

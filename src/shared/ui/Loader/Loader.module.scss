@@ -4,9 +4,9 @@
 }
 
 .loader-inner {
-  border: 4px solid var(--primary-color);
+  border: 4px solid var(--text-color);
   border-radius: 50%;
-  border-top: 4px solid var(--inverted-primary-color);
+  border-top: 4px solid var(--text-color);
   width: 30px;
   height: 30px;
   animation: spin 2s linear infinite;

@@ -9,7 +9,6 @@ interface SidebarItemProps extends SidebarItemInterface {
 }
 
 export const SidebarItem= memo(({ Icon, path, textKey, collapsed }: SidebarItemProps) => {
-    
   return (
     <UTLink
       to={path}

@@ -11,12 +11,12 @@
     padding-right: 10px;
     background: none;
     outline: none;
-    color: var(--primary-color); 
-    border: 1px solid var(--primary-color);
+    color: var(--text-color); 
+    border: 1px solid var(--text-color);
 }
 
 .option {
-    color: var(--inverted-primary-color);
-    background: var(--inverted-bg-color);
+    color: var(--text-color);
+    background: var(--light-bg-color);
     border-radius: 0 ;
 }

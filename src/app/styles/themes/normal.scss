@@ -1,14 +1,36 @@
 .app_light_theme {
-  --bg-color: #dedee7;
-  --inverted-bg-color: #0a0a4d;
-  --primary-color: #041a96;
+  // Базовые цвета
+  --white: #FFFFFF;
+  --child-of-light: #eff5f6;
+  --azul-primavera: #E2EEF1;
+  --river-styx: #141C1F;
+  --blue-heather: #ADBCC0;
+  --embarrassment: #FF7777;
+  --grotesque-green: #62de85;
+  --skyan: #5ed3f3;
+  --vivid-sky-blue: #00c8ff;
+
+  --dark-bg-color: var(--white);
+  --bg-color: var(--child-of-light);
+  --light-bg-color: var(--azul-primavera);
+  --text-color: var(--river-styx);
+  --hint-color: var(--blue-heather);
+  --cancel-color: var(--embarrassment);
+  --save-color: var(--grotesque-green);
+  --accent-color: var(--skyan);
+  --icon-color: var(--vivid-sky-blue);
+
   --secondary-color: #4729f3;
-  --inverted-primary-color:rgb(4 163 12);
   --inverted-secondary-color:  rgb(4 163 12);
-  --skeleton-loading: linear-gradient(90deg, var(--inverted-bg-color) 25%, var(--secondary-color) 37%, var(--inverted-bg-color) 63%);
+  --skeleton-loading: linear-gradient(90deg, var(--light-bg-color) 25%, var(--secondary-color) 37%, var(--light-bg-color) 63%);
   --skeleton-content: #bfbfbf;
   --skeleton-shadow: rgba(0 0 0  20%);
   
     // Code
     --code-bg: #fff;
+
+    // Sidebar
+
+    --sidebar-hover: linear-gradient(89.97deg, rgba(29, 89, 255, 0.3) 1.15%, rgba(94, 211, 243, 0) 99.97%);
+
 }

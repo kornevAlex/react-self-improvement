@@ -9,7 +9,7 @@
     border: none;
     outline: none;
     color: transparent;
-    text-shadow: 0 0 0 var(--inverted-primary-color);
+    text-shadow: 0 0 0 var(--text-color);
 
     &:focus {
         outline: none;
@@ -22,7 +22,7 @@
 
 .caret {
     position: absolute;
-    background: var( --inverted-primary-color);
+    background: var( --text-color);
     width: 10px;
     height: 3px;
     bottom: 0;

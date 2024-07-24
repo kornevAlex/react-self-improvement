@@ -20,11 +20,11 @@ CommonDark.args = {
 };
 CommonDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const CommonGREEN = Template.bind({});
-CommonGREEN.args = {
+export const CommonYELLOW = Template.bind({});
+CommonYELLOW.args = {
   width: '100px',
 };
-CommonGREEN.decorators = [ThemeDecorator(Theme.GREEN)];
+CommonYELLOW.decorators = [ThemeDecorator(Theme.YELLOW)];
 
 export const CommonLIGHT = Template.bind({});
 CommonLIGHT.args = {
@@ -47,13 +47,13 @@ ImageLight.args = {
 ImageLight.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 
-export const ImageGREEN: ComponentStory<typeof Skeleton> = (args) => <Skeleton.Image {...args} />;
-ImageGREEN.args = {
+export const ImageYELLOW: ComponentStory<typeof Skeleton> = (args) => <Skeleton.Image {...args} />;
+ImageYELLOW.args = {
   width: '300px',
   height: '100px',
   borderRadius: '25px'
 };
-ImageGREEN.decorators = [ThemeDecorator(Theme.GREEN)];
+ImageYELLOW.decorators = [ThemeDecorator(Theme.YELLOW)];
 
 export const ImageDARK: ComponentStory<typeof Skeleton> = (args) => <Skeleton.Image {...args} />;
 ImageDARK.args = {

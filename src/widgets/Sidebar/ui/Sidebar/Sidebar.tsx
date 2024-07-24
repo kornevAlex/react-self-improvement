@@ -2,6 +2,7 @@ import { ButtonSize, ButtonTheme, UTButton } from 'shared/ui/UTButton/UTButton';
 import { LangSwitcher, ThemeSwitcher } from 'widgets';
 import { classNames } from 'shared/lib';
 import { memo, useCallback, useMemo, useState } from 'react';
+import Logo from 'shared/img/logo.svg';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { useTranslation } from 'react-i18next';
@@ -38,6 +39,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
       data-testid="sidebar"
       className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
     >
+      <Logo className={cls.logo} />
       <div className={cls.links}>
         {renderSidebarItems}
       </div>
