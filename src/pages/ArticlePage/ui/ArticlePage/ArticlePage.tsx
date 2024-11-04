@@ -38,7 +38,7 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div className={classNames(cls.ArticlePage, {}, [className])}>
-        <ArticleList articles={articles} view={ArticleView.BLOCK} isLoading={isLoading} />
+        <ArticleList articles={articles} view={ArticleView.TILE} isLoading={isLoading} />
       </div>
     </DynamicModuleLoader>
   );

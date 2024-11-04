@@ -1,8 +1,10 @@
-.ArticleBlock {
-  
-}
 .Block {
-  padding: 27px;
+	transition: .2s;
+  cursor: pointer;
+
+	&:hover {
+		transform: scale(1.01);
+	}
 }
 
 .userInfo {

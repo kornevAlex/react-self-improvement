@@ -8,3 +8,4 @@ export { Icon } from './Icon/Icon';
 export { UTButton } from './UTButton/UTButton';
 export { UTLink } from './UTLink/UTLink';
 export { UTInput, InputMod } from './UTInput/UTInput';
+export { Card } from './Card/Card';

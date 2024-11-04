@@ -5,18 +5,18 @@ import { ReducersList, classNames, useActionCreators } from 'shared/lib';
 import { UTButton } from 'shared/ui';
 import { UTInput } from 'shared/ui/UTInput/UTInput';
 import { useSelector } from 'react-redux';
+import { TextTheme, UTText } from 'shared/ui/Text/UTText';
+import { DynamicModuleLoader } from 'shared/lib';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { authActions, authReducer } from '../../model/slice/loginSlice';
 import { authByUsername } from '../../model/services/AuthByUsername/authByUsername';
-import { TextTheme, UTText } from 'shared/ui/Text/UTText';
 import { getAuthUsername } from '../../../AuthByUsername/model/selectors/getAuthUsername/getAuthUsername';
 import { getAuthPassword } from '../../../AuthByUsername/model/selectors/getAuthPassword/getAuthPassword';
 import { getAuthError } from '../../../AuthByUsername/model/selectors/getAuthError/getAuthError';
 import { getAuthisLoading } from '../../../AuthByUsername/model/selectors/getAuthisLoading/getAuthisLoading';
-import { DynamicModuleLoader } from 'shared/lib';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 interface LoginFormProps {
-    className?: string;
+  className?: string;
 	onSuccess: () => void;
 }
 const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
@@ -48,7 +48,8 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 		
 
   }, [dispatch, username, password, onSuccess]);
-  '';
+  console.log(reducers);
+  
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div className={classNames(cls.LoginForm, {}, [className])} >

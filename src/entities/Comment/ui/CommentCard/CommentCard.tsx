@@ -3,7 +3,7 @@ import cls from './CommentCard.module.scss';
 import { FC } from 'react';
 import { CommentType } from '../../model/types/comment';
 import { Avatar, Skeleton, UTLink, UTText } from 'shared/ui';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { RoutePath } from 'shared/config';
 
 interface CommentCardProps {
   className?: string;

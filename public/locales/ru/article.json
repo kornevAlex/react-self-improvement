@@ -1,5 +1,7 @@
 {
   "article_not_found": "Статья не найдена",
   "comments": "Комментарии",
-  "articles_not_found": "Статьи не найдены"
+  "articles_not_found": "Статьи не найдены",
+  "load_message": "Загрузка...",
+  "back_to_article_list": "Назад к списку"
 }

@@ -8,6 +8,7 @@
 	position: relative;
 	transition: .4s width;
 	width: var(--sidebar-width);
+	min-width: var(--sidebar-width);
 	border-radius: 32px;
 	transition: all linear .5s;
 }

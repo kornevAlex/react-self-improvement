@@ -1,10 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleDetailsPage.module.scss';
-import { FC, memo, useCallback } from 'react';
+import { FC, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
-import { useParams } from 'react-router-dom';
-import { UTText } from 'shared/ui';
+import { useNavigate, useParams } from 'react-router-dom';
+import { UTButton, UTText } from 'shared/ui';
 import { CommentList } from 'entities/Comment';
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib';
@@ -15,19 +15,22 @@ import { articleDetailsCommentReducer, getArticleComments } from '../../model/sl
 import { getArticleDetailsCommentLoading } from '../../model/selectors/comments';
 import { fetchCommentArticleById } from '../../model/services/fetchCommentArticleById';
 import { sendCommentForArticle } from '../../model/services/sendCommentForArticle';
+import { RoutePath } from 'shared/config';
+import { ButtonTheme } from 'shared/ui/UTButton/UTButton';
 
 interface ArticleDetailsPageProps {
   className?: string;
 }
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const { t } = useTranslation('article');
+  const navigate = useNavigate();
   const { id = '' } = useParams<{id: string}>();
   const comments = useSelector(getArticleComments.selectAll);
   const commentIsLoading = useSelector(getArticleDetailsCommentLoading) || false;
   const dispatch = useAppDispatch();
-  const reducers: ReducersList = {
+  const reducers: ReducersList = useMemo(() => ({
     articleDetailsComments: articleDetailsCommentReducer,
-  };
+  }), []);
 	
   useInitialEffect(() => {
     dispatch(fetchCommentArticleById(id));
@@ -35,6 +38,10 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const onSendComment = useCallback((text) => {
     dispatch(sendCommentForArticle(text));
   }, [dispatch]);
+
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.article);
+  }, [navigate]);
 
   if (!id){
     return (
@@ -48,6 +55,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])} >
+        <UTButton theme={ButtonTheme.OUTLINE} onClick={onBackToList}>{t('back_to_article_list')}</UTButton>
         <ArticleDetails id={id} />
         <UTText className={cls.commentTitle} title={t('comments')} />
         <AddCommentForm onSendComment={onSendComment}/>

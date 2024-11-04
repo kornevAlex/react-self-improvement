@@ -1,5 +1,7 @@
 {
   "article_not_found": "Article not found",
   "comments": "Comments",
-  "articles_not_found": "Articles haven't found"
+  "articles_not_found": "Articles haven't found",
+  "load_message": "Loading...",
+  "back_to_article_list": "Back to article"
 }

@@ -23,7 +23,6 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => 
   const { setReadonly, cancelEdit } = useActionCreators(profileActions);
 
   const isOwner = profileData?.id === authData?.id;
-  console.log(profileData?.id, authData?.id);
 	
   const readonly = useSelector(getProfileReadonly);
   const onEdit = useCallback(() => {

@@ -1,4 +1,4 @@
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { RoutePath } from 'shared/config';
 import Home from 'shared/img/home.svg';
 import Info from 'shared/img/info.svg';
 import Profile from 'shared/img/avatar.svg';

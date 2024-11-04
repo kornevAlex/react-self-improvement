@@ -1,14 +1,10 @@
 import { Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { AppRoutesProps, routeConfig } from 'shared/config/routeConfig/routeConfig';
+import { AppRoutesProps, routeConfig } from 'shared/config';
 import { PageLoader } from 'widgets';
 import { RequireAuth } from './RequireAuth';
 
 export const AppRouter = () => {
-  console.log('==============================');
-  console.log('arpprouter');
-  console.log('==============================');
-  
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {
     const element = (
       <Suspense fallback={<PageLoader />}>
