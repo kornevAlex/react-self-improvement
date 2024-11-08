@@ -39,7 +39,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
       data-testid="sidebar"
       className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
     >
-      <Logo className={cls.logo} />
+      { !collapsed && <Logo className={cls.logo} />}
       <div className={cls.links}>
         {renderSidebarItems}
       </div>

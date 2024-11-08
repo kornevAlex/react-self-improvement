@@ -1,5 +1,4 @@
 .sidebar {
-	padding: auto;
 	display: flex;
     flex-direction: column;
 	align-items: center;
@@ -10,7 +9,7 @@
 	width: var(--sidebar-width);
 	min-width: var(--sidebar-width);
 	border-radius: 32px;
-	transition: all linear .5s;
+	transition: all linear .2s;
 }
 
 .switchers {
@@ -30,10 +29,11 @@
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+	margin-top: 20px;
 }
 
 .collapsed {
-	width: var(--sidebar-width-collapsed);
+	--sidebar-width: 40px;
 
 	.switchers {
 		flex-direction: column;
@@ -46,17 +46,12 @@
 	.logo {
 		visibility: hidden;
 	}
-
-	.links {
-		transform: translateY(-100px);
-	}
 }
 
 
 .logo {
     max-width: 180px;
 	max-height: var(--logo-h);
-	margin-bottom: 40px;
 	margin-top: 20px;
     stroke: var(--icon-color);
     fill: none;

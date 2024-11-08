@@ -6,14 +6,17 @@ import { Avatar, UTLink, UTText } from 'shared/ui';
 import { RoutePath } from 'shared/config';
 import { TextSize } from 'shared/ui/Text/UTText';
 import { Card } from 'shared/ui';
+import { ArticleBlockType, ArticleTextBlock as ArticleTextBlockType } from '../../model/types/article';
+import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
 interface TileProps {
   className?: string;
   item: Article;
 }
 export const Tile: FC<TileProps> = ({ className, item }) => {
-  const { user, createdAt, id, subtitle, title, type, img } = item;
+  const { user, createdAt, title, type, img, blocks } = item;
   
+  const textBlock = blocks.find(el => el.type === ArticleBlockType.TEXT) as ArticleTextBlockType;
   return (
     <Card>
       <div className={classNames(cls.Tile, {}, [className])}>
@@ -26,6 +29,9 @@ export const Tile: FC<TileProps> = ({ className, item }) => {
         </div>
         <UTText title={title} size={TextSize.L} text={type?.join(' ')} />
         <img src={img} alt={title} className={cls.img} />
+        {textBlock &&  (
+          <ArticleTextBlock className={cls.textBlock} block={textBlock}/>
+        )}
       </div>
     </Card>
   );
